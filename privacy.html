@@ -1,0 +1,366 @@
+<title>Cost Tracker Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#F6F8FC;
+    --surface:#FFFFFF;
+    --surface-sunk:#EEF2F9;
+    --ink:#182338;
+    --muted:#5C6B87;
+    --faint:#93A1BC;
+    --line:#DEE5F0;
+    --accent:#1868DB;
+    --accent-ink:#0E4DA6;
+    --accent-wash:#E9F0FD;
+    --warn-bg:#FFF6E6;
+    --warn-line:#F0C766;
+    --warn-ink:#7A5300;
+    --ok:#1F9D6C;
+    --amber:#B36B00;
+    --danger:#C9372C;
+    --code-bg:#0F1626;
+    --code-ink:#DCE6FA;
+    --shadow:0 1px 2px rgba(24,35,56,.04), 0 8px 24px -12px rgba(24,35,56,.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0A0E17;
+      --surface:#12192A;
+      --surface-sunk:#0E1422;
+      --ink:#E7ECF6;
+      --muted:#93A1BC;
+      --faint:#5C6B87;
+      --line:#232D42;
+      --accent:#6FA3FF;
+      --accent-ink:#9BC0FF;
+      --accent-wash:#152238;
+      --warn-bg:#241C0A;
+      --warn-line:#5C4A15;
+      --warn-ink:#F0C766;
+      --ok:#4FCE99;
+      --amber:#E3A53B;
+      --danger:#F0776C;
+      --code-bg:#080B13;
+      --code-ink:#CBD9F5;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A0E17;
+    --surface:#12192A;
+    --surface-sunk:#0E1422;
+    --ink:#E7ECF6;
+    --muted:#93A1BC;
+    --faint:#5C6B87;
+    --line:#232D42;
+    --accent:#6FA3FF;
+    --accent-ink:#9BC0FF;
+    --accent-wash:#152238;
+    --warn-bg:#241C0A;
+    --warn-line:#5C4A15;
+    --warn-ink:#F0C766;
+    --ok:#4FCE99;
+    --amber:#E3A53B;
+    --danger:#F0776C;
+    --code-bg:#080B13;
+    --code-ink:#CBD9F5;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Newsreader", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-wash); color:var(--accent-ink); }
+
+  .shell{
+    max-width:1180px; margin:0 auto;
+    padding:40px 28px 96px;
+    display:grid;
+    grid-template-columns:252px minmax(0,1fr);
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:880px){
+    .shell{ grid-template-columns:1fr; gap:28px; padding:24px 18px 64px; }
+    aside{ position:static !important; }
+  }
+
+  aside{
+    position:sticky; top:28px;
+    display:flex; flex-direction:column; gap:22px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand-mark{
+    width:30px; height:30px; border-radius:8px; flex:none;
+    background:var(--accent);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .brand-mark svg{ width:16px; height:16px; }
+  .brand-name{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:12.5px; font-weight:600; letter-spacing:.02em;
+    color:var(--ink);
+  }
+  .brand-sub{ font-size:11px; color:var(--faint); margin-top:1px; }
+
+  nav.toc{ display:flex; flex-direction:column; gap:2px; }
+  nav.toc a{
+    display:block; text-decoration:none;
+    color:var(--muted); font-size:13.5px; line-height:1.5;
+    padding:6px 10px; border-radius:7px;
+    border-left:2px solid transparent;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    transition:color .15s ease, background .15s ease, border-color .15s ease;
+  }
+  nav.toc a:hover{ color:var(--ink); background:var(--surface-sunk); }
+  nav.toc a.active{
+    color:var(--accent-ink); background:var(--accent-wash);
+    border-left-color:var(--accent); font-weight:500;
+  }
+
+  .meta-card{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:10px; padding:14px 16px;
+    box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .meta-row{ display:flex; flex-direction:column; gap:2px; }
+  .meta-label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--faint);
+  }
+  .meta-value{ font-size:13px; color:var(--ink); font-family:"IBM Plex Mono",ui-monospace,monospace; }
+  .meta-value a{ color:var(--accent-ink); }
+
+  main{ min-width:0; }
+
+  h1{
+    font-size:clamp(28px,3.6vw,38px); font-weight:600; line-height:1.15;
+    margin:0 0 8px; text-wrap:balance;
+  }
+  .subtitle{ color:var(--muted); font-size:16px; margin:0 0 40px; max-width:60ch; }
+
+  section{ margin-bottom:44px; scroll-margin-top:24px; }
+  section h2{
+    font-size:21px; font-weight:600; margin:0 0 14px;
+    padding-bottom:10px; border-bottom:1px solid var(--line);
+    text-wrap:balance;
+  }
+  section p, section li{
+    font-size:16.5px; line-height:1.7; color:var(--ink);
+    max-width:66ch;
+  }
+  section p{ margin:0 0 14px; }
+  section ul{ margin:0 0 14px; padding-left:22px; max-width:66ch; }
+  section li{ margin-bottom:6px; }
+  section p:last-child, section ul:last-child{ margin-bottom:0; }
+
+  code.field{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    background:var(--surface-sunk); border:1px solid var(--line);
+    padding:1px 6px; border-radius:5px; font-size:.88em; color:var(--accent-ink);
+  }
+
+  table.settings{ width:100%; border-collapse:collapse; margin:14px 0 4px; font-size:14.5px; }
+  table.settings th, table.settings td{ text-align:left; padding:8px 12px 8px 0; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.settings th{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--faint); font-weight:600; }
+  table.settings td.field{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:13px; color:var(--accent-ink); white-space:nowrap; }
+  .settings-wrap{ overflow-x:auto; }
+
+  .example{
+    background:var(--code-bg); color:var(--code-ink);
+    border-radius:10px; padding:18px 20px; margin:18px 0;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:13.5px; line-height:1.9; overflow-x:auto;
+  }
+  .example .k{ color:#8FAEDE; }
+  .example .s{ color:#9FD6B0; }
+  .chip{
+    display:inline-flex; align-items:center; gap:5px;
+    padding:1px 8px; border-radius:999px; font-size:11.5px; font-weight:600;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  .chip-ok{ background:color-mix(in srgb, var(--ok) 18%, transparent); color:var(--ok); }
+  .chip-warn{ background:color-mix(in srgb, var(--amber) 20%, transparent); color:var(--amber); }
+  .chip-danger{ background:color-mix(in srgb, var(--danger) 18%, transparent); color:var(--danger); }
+  .example-caption{ color:var(--faint); font-size:12.5px; margin-top:8px; font-family:"IBM Plex Mono",ui-monospace,monospace; }
+
+  .not-list{
+    display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px;
+  }
+  .not-pill{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:12px; color:var(--muted);
+    border:1px solid var(--line); border-radius:7px;
+    padding:5px 10px; background:var(--surface-sunk);
+    text-decoration:line-through; text-decoration-color:var(--faint);
+  }
+
+  .colophon{
+    margin-top:56px; padding-top:24px; border-top:1px solid var(--line);
+    font-size:13px; color:var(--faint); line-height:1.7;
+  }
+  .colophon a{ color:var(--accent-ink); }
+</style>
+
+<div class="shell">
+  <aside>
+    <a class="brand" href="/" style="text-decoration:none">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round">
+          <line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/>
+          <path d="M 78 34 A 18 18 0 1 0 78 55"/>
+          <path d="M 50 73 A 18 18 0 1 1 50 94"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">COST TRACKER</div>
+        <div class="brand-sub">by Vudia</div>
+      </div>
+    </a>
+
+    <nav class="toc" id="toc">
+      <a href="#summary">Summary</a>
+      <a href="#reads">What it reads from Jira</a>
+      <a href="#writes">What it writes to Jira</a>
+      <a href="#stores">What it stores</a>
+      <a href="#sensitive">Rates are sensitive data</a>
+      <a href="#retention">Retention &amp; deletion</a>
+      <a href="#location">Where data is stored</a>
+      <a href="#logs">Logs</a>
+      <a href="#tracking">Analytics &amp; tracking</a>
+      <a href="#rights">Your rights</a>
+      <a href="#changes">Changes to this policy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="meta-card">
+      <div class="meta-row">
+        <span class="meta-label">App</span>
+        <span class="meta-value">Cost Tracker</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Vendor</span>
+        <span class="meta-value">Vudia</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Documentation</span>
+        <span class="meta-value"><a href="/">index.html</a></span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Security policy</span>
+        <span class="meta-value"><a href="/security.html">security.html</a></span>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <h1>Privacy Policy — Cost Tracker</h1>
+    <p class="subtitle">A Jira app by Vudia. This page explains exactly what the app reads from Jira, what it stores, and what it never touches.</p>
+
+    <section id="summary">
+      <h2>Summary</h2>
+      <p>Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure — it has no servers of its own and makes no outbound network call to anything outside Atlassian. We do not operate any system that receives your data, and we cannot see the data your site holds in the app. The app reads issues, worklogs, and user names using the permissions of whoever is using it, and stores the projects, rates, expenses and reports your users enter in Forge storage, scoped to your own site.</p>
+    </section>
+
+    <section id="reads">
+      <h2>What it reads from Jira</h2>
+      <p>Depending on what a feature needs, and always live, using the viewer's own Jira permissions:</p>
+      <ul>
+        <li>Issue key, summary, status, type, created/due dates, and the status-category change date, for issues matching a cost project's own scope</li>
+        <li>Worklogs on those issues — author account ID and display name, time spent, and date</li>
+        <li>The list of Jira projects on your site, to populate the project/space picker</li>
+        <li>User search results, to add people to a team, share a project, or transfer ownership</li>
+        <li>The caller's own account profile, and whether they hold the site's <code class="field">ADMINISTER</code> permission, to gate site-wide setup screens</li>
+      </ul>
+      <p>None of it is copied anywhere outside your site.</p>
+    </section>
+
+    <section id="writes">
+      <h2>What it writes to Jira</h2>
+      <p>Nothing. The app never creates, edits, transitions, or comments on a Jira issue — it only reads.</p>
+    </section>
+
+    <section id="stores">
+      <h2>What it stores</h2>
+      <p>In Forge storage, scoped to your site: the cost projects, portfolios, roles, hourly rates, team memberships, expenses, revenue entries, budgets, milestones, cost accounts, custom attributes and saved reports that your users create, plus a short-lived cache of computed report totals (recomputed every ~15 minutes, or sooner after a change that affects the numbers).</p>
+      <div class="not-list">
+        <span class="not-pill">passwords</span>
+        <span class="not-pill">API tokens</span>
+        <span class="not-pill">payment details</span>
+        <span class="not-pill">issue content beyond what's listed above</span>
+      </div>
+    </section>
+
+    <section id="sensitive">
+      <h2>Rates are sensitive data</h2>
+      <p>Hourly cost and billing rates are tied to named people and can reveal compensation-related information. Who can see a project's rates is controlled by that project's own sharing settings — set, and changeable only, by its owner. There's no feature that surfaces one project's rates to someone who isn't given access to that project.</p>
+    </section>
+
+    <section id="retention">
+      <h2>Retention &amp; deletion</h2>
+      <p>Data stays in your site's Forge storage until your users delete it in the app, or until the app is uninstalled. Deleting a cost project removes its own rates, team, expenses, revenue, budget and milestones; it does not retroactively scrub it from a portfolio's history, which instead shows a "member was deleted" note. Removal of storage after uninstall follows Atlassian's own Forge retention policy.</p>
+    </section>
+
+    <section id="location">
+      <h2>Where data is stored</h2>
+      <p>Inside Atlassian's own Forge storage platform, in the same data residency as the rest of your Jira site. Nothing leaves Atlassian's infrastructure — the app declares no permission to call any external service.</p>
+    </section>
+
+    <section id="logs">
+      <h2>Logs</h2>
+      <p>The app writes a diagnostic log line only when something fails unexpectedly. These logs are not used to reconstruct rates, expenses, or other figures you've entered.</p>
+    </section>
+
+    <section id="tracking">
+      <h2>Analytics &amp; tracking</h2>
+      <p>None. The app contains no analytics, no tracking pixels, no advertising, and no third-party scripts of any kind.</p>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p>Because we hold no copy of your data outside your own Forge storage, requests to access, correct, or delete it are handled directly inside the app and Jira by your site administrators — sharing settings determine who can reach a given project's data, and a site admin can always reach it. If you have a question we haven't answered here, contact us using the details below.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If what the app reads, writes, or stores changes, this page changes with it.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><a href="mailto:info@vudia.site">info@vudia.site</a></p>
+    </section>
+
+    <div class="colophon">This policy applies to the Cost Tracker app only. Vudia publishes a separate privacy policy for each of its apps.</div>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+    var sections = links.map(function (a) {
+      return document.getElementById(a.getAttribute('href').slice(1));
+    });
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var idx = sections.indexOf(entry.target);
+        if (idx === -1) return;
+        if (entry.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          links[idx].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function (s) { if (s) io.observe(s); });
+  })();
+</script>
