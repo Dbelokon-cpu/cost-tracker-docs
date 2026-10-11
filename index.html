@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cost Tracker Documentation</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -98,12 +103,20 @@
   table.settings td.field{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:13px; color:var(--accent-ink); white-space:nowrap; }
   .settings-wrap{ overflow-x:auto; }
 
+  .callout{ border-left:3px solid var(--accent); background:var(--accent-wash); padding:12px 16px; border-radius:0 8px 8px 0; margin:16px 0; max-width:66ch; }
+  .callout.warn{ border-left-color:var(--amber); background:color-mix(in srgb, var(--amber) 12%, transparent); }
+  .callout p{ font-size:15.5px; margin:0; }
+  .callout p + p{ margin-top:8px; }
+  table.settings td.num{ font-family:"IBM Plex Mono",ui-monospace,monospace; white-space:nowrap; text-align:right; }
+  table.settings th.num{ text-align:right; }
   .faq dt{ font-weight:600; font-size:16.5px; margin-top:20px; }
   .faq dt:first-child{ margin-top:0; }
   .faq dd{ margin:6px 0 0; font-size:15.5px; line-height:1.65; color:var(--muted); max-width:64ch; }
 
   .colophon{ margin-top:56px; padding-top:24px; border-top:1px solid var(--line); font-size:13px; color:var(--faint); line-height:1.7; }
 </style>
+</head>
+<body>
 
 <div class="shell">
   <aside>
@@ -140,6 +153,7 @@
 
       <span class="toc-group-label">Access</span>
       <a href="#sharing">Sharing &amp; ownership</a>
+      <a href="#permissions">Permissions &amp; data</a>
       <a href="#limits">Scope limits &amp; caching</a>
 
       <span class="toc-group-label">Reference</span>
@@ -190,10 +204,11 @@
       <ol class="steps">
         <li>Open <strong>Cost Tracker</strong> from the Jira Apps sidebar, or from inside a Jira project's own sidebar.</li>
         <li>Select <strong>Create project</strong>. Give it a name and a scope — either pick one or more Jira spaces, or write a JQL filter.</li>
-        <li>Choose <strong>Monetary-based</strong> (cost and budget in a currency, from hourly rates) or <strong>Time-based</strong> (cost and budget in hours directly, no rates).</li>
-        <li>Open the project's <strong>Team</strong> tab to set hourly rates per person, or group people into roles with a shared rate.</li>
+        <li>Choose the project type. <strong>Monetary-based</strong> measures cost and budget in a currency you pick, computed from hourly rates. <strong>Time-based</strong> measures them in hours directly and uses no rates. Choose carefully: this decides whether rates, revenue and billing apply at all.</li>
+        <li>For a monetary project, set the pricing. Either enter a <strong>Default hourly rate</strong> under <strong>Settings → Rates and revenue</strong>, or open the <strong>Team</strong> tab to set a rate per person or per role.</li>
       </ol>
-      <p>From there, cost is computed automatically from whatever time your team already logs on the matching issues — there is nothing further to enter unless you also want to track expenses, revenue, or a budget.</p>
+      <p>From there, cost is computed automatically from the time your team already logs on the matching issues. Nothing further is required unless you also want to track expenses, revenue or a budget.</p>
+      <div class="callout warn"><p><strong>A new monetary project starts with a default rate of 0.</strong> Until you set a rate somewhere (default, role, person or cost account), logged hours are counted but cost shows as 0. This is the most common reason for an unexpectedly empty cost figure; see <a href="#rates">Rates</a>.</p></div>
     </section>
 
     <section id="scope">
@@ -210,10 +225,50 @@
     </section>
 
     <section id="rates">
-      <h2>Rates, roles, team<span class="h2-note">Team tab</span></h2>
-      <p>Everyone who has logged time in scope appears on the Team tab automatically, whether or not they've been added explicitly — a role and a named rate are optional, not a prerequisite for being counted.</p>
-      <p>An hourly rate resolves through one chain, most specific first: a person's own rate, then a cost account's rate (if their work is on one), then their role's rate, then the project's own default. <strong>Cost</strong> and <strong>billing</strong> rates are tracked separately, so what a person costs the business and what a client is billed for them can differ.</p>
-      <p>$0/h is a valid, deliberate rate — for unpaid or internal work — and is shown as such rather than being confused with "no rate configured".</p>
+      <h2>Rates, roles, team<span class="h2-note">Team tab · Settings → Rates and revenue</span></h2>
+      <p>Applies to <strong>monetary</strong> projects. A time-based project has no rates: the Team tab shows hours only. Roles still work there and feed the "Top roles" breakdown.</p>
+
+      <h3>Who appears on the Team tab</h3>
+      <p>Everyone who has logged time in the project's scope appears automatically, plus anyone you add explicitly. A role or a personal rate is optional and never a condition for being counted. You can add people who have not logged anything yet by searching Jira users. Only existing users of your Jira site can be found; the app cannot invite people or send email, so invite a new colleague to the site first.</p>
+
+      <h3>How an hourly rate is chosen</h3>
+      <p>Every worklog is priced individually. For each one the app takes the first rate it finds in this order, and stops:</p>
+      <div class="settings-wrap">
+        <table class="settings">
+          <tr><th>Priority</th><th>Source</th><th>Where you set it</th></tr>
+          <tr><td class="field">1 (highest)</td><td>The person's own rate</td><td>Team tab, rate field on the person's row</td></tr>
+          <tr><td class="field">2</td><td>The rate of the cost account the issue belongs to</td><td>Accounts section</td></tr>
+          <tr><td class="field">3</td><td>The rate of the person's role</td><td>Team tab, Roles</td></tr>
+          <tr><td class="field">4 (fallback)</td><td>The project's Default hourly rate</td><td>Settings → Rates and revenue</td></tr>
+        </table>
+      </div>
+      <p>Because an account's rate depends on the <em>issue</em> and not on the person, the same person can be priced differently on different issues in the same period. The Team tab labels each rate by where it came from: their own rate, <em>account</em>, <em>role</em>, <em>default rate</em>, or <em>mixed</em> when an account's rate applied to only some of their worklogs. For a "mixed" person the rate shown is the average, cost divided by hours.</p>
+
+      <h3>Example</h3>
+      <p>Anna has a personal rate of 50. Ben has none and belongs to the role Developer (rate 40). The project default is 30. Ben logs 5 hours on an issue that falls into a cost account with a rate of 60, and 5 hours on an ordinary issue.</p>
+      <div class="settings-wrap">
+        <table class="settings">
+          <tr><th>Worklog</th><th>Rate used</th><th>Why</th><th class="num">Cost</th></tr>
+          <tr><td>Anna, 10 h, any issue</td><td class="field">50</td><td>Her own rate beats everything, including the account's 60</td><td class="num">500</td></tr>
+          <tr><td>Ben, 5 h, issue in the account</td><td class="field">60</td><td>No personal rate, so the account's rate wins over his role</td><td class="num">300</td></tr>
+          <tr><td>Ben, 5 h, ordinary issue</td><td class="field">40</td><td>No personal or account rate, so his role applies</td><td class="num">200</td></tr>
+          <tr><td>Carol (no role), 4 h</td><td class="field">30</td><td>Nothing else matches, so the project default applies</td><td class="num">120</td></tr>
+        </table>
+      </div>
+
+      <h3>Cost rate and billing rate</h3>
+      <p>Each person, role and account can carry two rates: a <strong>cost rate</strong> (what the person costs the business) and a <strong>billing rate</strong> (what the client is charged). They are resolved independently with the same four-step order, so they can come from different tiers. Billing rates only matter when <a href="#revenue">hourly revenue</a> is on. With a fixed-price project they are hidden.</p>
+
+      <h3>Empty is not zero</h3>
+      <p>Leaving a rate field empty means "not set here, use the next tier". Entering <code class="field">0</code> means "this work is free" (unpaid or internal work) and is respected as a real rate. Clearing a field you filled in earlier removes the value completely and returns the person to the next tier; it does not leave a hidden zero.</p>
+
+      <h3>Roles</h3>
+      <p>A role is a named group with a shared cost and billing rate, for example Developer or Designer. Roles belong to one cost project and are not shared between projects. Deleting a role does not remove its people; they are simply unassigned and fall to the next tier. Roles are limited to 60 characters and their names must be unique within the project, ignoring case.</p>
+
+      <div class="callout warn">
+        <p><strong>Changing a rate reprices history.</strong> A rate has no start date. When you change it, all hours already logged, past and future alike, are recalculated at the new rate the next time the report refreshes. The app has no rate-by-period history. If last year's work must stay at last year's price, record it in a separate cost project, or keep the old scope in a project you no longer change.</p>
+        <p>Rates are stored per project and expressed in that project's currency. Cost accounts are shared across the site, so an account's rate is a plain number applied as-is in each project's own currency, with no conversion.</p>
+      </div>
     </section>
 
     <section id="expenses">
@@ -223,12 +278,12 @@
 
     <section id="revenue">
       <h2>Revenue &amp; profit<span class="h2-note">Revenue tab · Settings → Rates and revenue</span></h2>
-      <p>Turned on per project, in one of two modes:</p>
+      <p>Available on monetary projects only; a time-based project has no currency to bill in. Turn it on per project, in one of two modes:</p>
       <div class="measure-grid">
         <div class="measure-card"><h4>Hourly billing</h4><p>Revenue accrues from logged hours at each person's billing rate — the same resolution chain as cost, with its own rate.</p></div>
-        <div class="measure-card"><h4>Fixed price</h4><p>The project bills a flat amount regardless of hours logged, plus any fixed revenue entries (a milestone payment, a licence fee) entered by hand.</p></div>
+        <div class="measure-card"><h4>Fixed price</h4><p>The project's <strong>budget</strong> is the contract amount and counts as revenue, regardless of hours logged. Fixed revenue entries (a milestone payment, a licence fee) can be added by hand on top. Billing rates are hidden.</p></div>
       </div>
-      <p>Profit and margin are computed from revenue minus cost (labour plus expenses) and shown alongside the cost figures throughout, not as a separate reconciliation step.</p>
+      <p>Profit and margin are computed as revenue minus total cost (labour plus expenses) and shown alongside the cost figures throughout, not as a separate reconciliation step.</p>
     </section>
 
     <section id="budget">
@@ -238,12 +293,12 @@
 
     <section id="portfolios">
       <h2>Portfolios</h2>
-      <p>A portfolio groups several cost projects for a combined view: total cost, total budget, team size and project count, a Gantt-style timeline across all of them, and a table of the member projects with their own status and dates. Deleting a cost project that belongs to a portfolio doesn't break the portfolio — it loads normally with a note that the missing member is excluded from the totals.</p>
+      <p>A portfolio groups several cost projects for a combined view: total cost, total budget, team size and project count, a Gantt-style timeline across all of them, and a table of the member projects with their own status and dates. Deleting a cost project that belongs to a portfolio doesn't break the portfolio — it loads normally with a note that the missing member is excluded from the totals. Hours always add up. Money adds up only across monetary projects that share one currency; with mixed currencies, or only time-based members, money totals are left out and the page says so rather than adding unlike units.</p>
     </section>
 
     <section id="accounts">
       <h2>Cost accounts</h2>
-      <p>A named bucket of work — typically CAPEX vs. OPEX, or a client/cost-centre split — defined by a JQL filter rather than a custom Jira field. Work matching an account's JQL (searched inside each project's own scope) can carry its own cost and billing rate, which beats a role's rate and the project default, but not a person's own rate. An issue that matches more than one account's JQL goes to whichever account was created first.</p>
+      <p>A named bucket of work — typically CAPEX vs. OPEX, or a client/cost-centre split — defined by a JQL filter rather than a custom Jira field. Work matching an account's JQL (searched inside each project's own scope) can carry its own cost and billing rate, which beats a role's rate and the project default, but not a person's own rate. An issue that matches more than one account's JQL goes to whichever account was created first, so every worklog has exactly one rate. The JQL is checked when you save it; if it later stops parsing, the account is skipped rather than breaking the report. You can create up to <strong>20</strong> accounts, because each one costs an extra Jira search per project. An account's status is informational and only affects filtering in the list; it does not switch the account off.</p>
     </section>
 
     <section id="reports">
@@ -258,18 +313,40 @@
       <p>Cost accounts and custom attributes are site-wide setup resources, not scoped to one project, so changing them is limited to Jira site administrators; everyone can still see them.</p>
     </section>
 
+    <section id="permissions">
+      <h2>Permissions &amp; data</h2>
+      <p>The app requests three Forge permissions and nothing else:</p>
+      <div class="settings-wrap">
+        <table class="settings">
+          <tr><th>Permission</th><th>Used for</th></tr>
+          <tr><td class="field">read:jira-work</td><td>Searching issues and reading their worklogs and dates, listing Jira projects, and checking whether you are a site administrator.</td></tr>
+          <tr><td class="field">read:jira-user</td><td>Showing people's names and finding users to add as members or share with.</td></tr>
+          <tr><td class="field">storage:app</td><td>Keeping the app's own data (projects, rates, expenses) in Forge storage.</td></tr>
+        </table>
+      </div>
+      <p>Jira is only ever read, never written to. Requests to Jira run as the person using the app. Cost Tracker declares no external network access. Details are in the <a href="/privacy.html">privacy policy</a> and <a href="/security.html">security policy</a>.</p>
+    </section>
+
     <section id="limits">
       <h2>Scope limits &amp; caching</h2>
-      <p>A cost project's scope is read up to <strong>500 issues</strong>; a report says so explicitly when a project is capped, rather than silently showing a partial total as if it were complete. Computed reports are cached for roughly 15 minutes and recomputed automatically after that, or immediately after a rates, roles, or settings change that would affect the number.</p>
+      <p>A cost project's scope is read up to <strong>500 issues</strong>; a report says so explicitly when a project is capped, rather than silently showing a partial total as if it were complete. If a portfolio has several members, the warning names the project that hit the cap. Cost accounts are limited to 20. Computed reports are cached for roughly 15 minutes and recomputed automatically after that, or immediately after a rates, roles, or settings change that would affect the number.</p>
     </section>
 
     <section id="faq">
       <h2>FAQ</h2>
       <dl class="faq">
         <dt>Does it replace Jira's own time tracking?</dt>
-        <dd>No — it reads the worklogs your team already logs in Jira. There's no second place to log time.</dd>
-        <dt>A project shows $0 cost. Why?</dt>
-        <dd>Cost comes only from worklogs on issues matching the project's scope. Check the scope JQL in Settings, that the matching issues actually have logged time, and that rates aren't genuinely set to $0/h by default.</dd>
+        <dd>No. It reads the worklogs your team already logs in Jira. There's no second place to log time.</dd>
+        <dt>A project shows zero cost. Why?</dt>
+        <dd>Cost comes only from worklogs on issues matching the project's scope. Check the scope JQL in Settings, that the matching issues actually have logged time, and that a rate is actually set. A new monetary project has a default rate of 0 until you set one (see <a href="#rates">Rates</a>).</dd>
+        <dt>I changed a rate and the old numbers changed too. Is that a bug?</dt>
+        <dd>No, it is by design. A rate has no start date, so the new rate applies to all hours, past and future. See <a href="#rates">Rates</a> for how to keep a frozen history.</dd>
+        <dt>Why does a person show a rate I never entered?</dt>
+        <dd>It comes from a lower tier: a cost account, their role, or the project default. The label next to the rate says which. "Mixed" means an account's rate covered only some of their worklogs, and the figure shown is the average.</dd>
+        <dt>Time-based or monetary: can I change it later?</dt>
+        <dd>Decide up front. Time-based projects count hours only, with no rates, revenue or billing. Pick monetary if you will ever need a cost or profit figure.</dd>
+        <dt>A report says the scope was capped. What now?</dt>
+        <dd>Only the first 500 issues were read, so totals may be incomplete. Narrow the scope (a tighter JQL, or split into several cost projects) so each stays under the limit.</dd>
         <dt>Can one Jira project belong to more than one cost project?</dt>
         <dd>Yes. Scope is defined independently each time, so the same Jira project can be covered by several cost projects — split by cost account, for instance — at once.</dd>
         <dt>I can't open or edit a project.</dt>
@@ -306,3 +383,5 @@
     sections.forEach(function (s) { if (s) io.observe(s); });
   })();
 </script>
+</body>
+</html>
