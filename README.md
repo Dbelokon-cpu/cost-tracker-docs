@@ -2,7 +2,7 @@
 
 Public documentation, privacy policy and security policy for the [Cost Tracker](https://github.com/Dbelokon-cpu/cost-tracker) Jira app by Vudia. The app's source code lives in a separate, private repository — this one holds only the user-facing docs.
 
-Live at https://dbelokon-cpu.github.io/cost-tracker-docs/
+Live at https://cost.vudia.site/ (the `CNAME` file and a CNAME record `cost` → `dbelokon-cpu.github.io` in Cloudflare, DNS only). The old address https://dbelokon-cpu.github.io/cost-tracker-docs/ redirects to it.
 
 ## How the site is made
 
