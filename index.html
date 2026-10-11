@@ -208,7 +208,7 @@
         <li>For a monetary project, set the pricing. Either enter a <strong>Default hourly rate</strong> under <strong>Settings → Rates and revenue</strong>, or open the <strong>Team</strong> tab to set a rate per person or per role.</li>
       </ol>
       <p>From there, cost is computed automatically from the time your team already logs on the matching issues. Nothing further is required unless you also want to track expenses, revenue or a budget.</p>
-      <div class="callout warn"><p><strong>A new monetary project starts with a default rate of 0.</strong> Until you set a rate somewhere (default, role, person or cost account), logged hours are counted but cost shows as 0. This is the most common reason for an unexpectedly empty cost figure; see <a href="#rates">Rates</a>.</p></div>
+      <div class="callout warn"><p><strong>A new monetary project starts with a default rate of 0.</strong> Until you set a rate somewhere (default, role, person or cost account), logged hours are counted but cost shows as 0. The app shows a warning banner on Overview, Team and Revenue while this is the case. See <a href="#rates">Rates</a>.</p></div>
     </section>
 
     <section id="scope">
@@ -329,7 +329,7 @@
 
     <section id="limits">
       <h2>Scope limits &amp; caching</h2>
-      <p>A cost project's scope is read up to <strong>500 issues</strong>; a report says so explicitly when a project is capped, rather than silently showing a partial total as if it were complete. If a portfolio has several members, the warning names the project that hit the cap. Cost accounts are limited to 20. Computed reports are cached for roughly 15 minutes and recomputed automatically after that, or immediately after a rates, roles, or settings change that would affect the number.</p>
+      <p>A cost project's scope is read up to <strong>500 issues</strong>. This is a deliberate limit, sized for small and medium teams. When a project is capped, Overview, Scope and Reports say so explicitly and show the real size ("first 500 of about N issues") instead of silently presenting a partial total as complete. To stay under the limit, split a large project by Jira space or by period; the warning suggests both. If a portfolio has several members, the warning names the project that hit the cap. Cost accounts are limited to 20. Computed reports are cached for roughly 15 minutes and recomputed automatically after that, or immediately after a rates, roles, or settings change that would affect the number.</p>
     </section>
 
     <section id="faq">
@@ -344,9 +344,11 @@
         <dt>Why does a person show a rate I never entered?</dt>
         <dd>It comes from a lower tier: a cost account, their role, or the project default. The label next to the rate says which. "Mixed" means an account's rate covered only some of their worklogs, and the figure shown is the average.</dd>
         <dt>Time-based or monetary: can I change it later?</dt>
-        <dd>Decide up front. Time-based projects count hours only, with no rates, revenue or billing. Pick monetary if you will ever need a cost or profit figure.</dd>
+        <dd>Yes, in Settings, and the app asks you to confirm first. Nothing stored is converted: the budget and milestone numbers keep their values and are simply read as hours or as currency amounts afterwards, so review them after switching. Rates, revenue and billing are kept when you go to time-based, only hidden. Changing just the currency changes only the label, so budget, expenses, fixed revenue, milestones and rates are not recalculated.</dd>
+        <dt>Why does the app say hourly rates are not set?</dt>
+        <dd>A banner on Overview, Team and Revenue appears when logged time is counted at 0 only because no rate applies to it. A new monetary project starts with a default rate of 0. Set a Default hourly rate in Settings → Rates and revenue, or a rate per person or role. A rate you set to 0 on purpose (unpaid work) does not trigger the banner.</dd>
         <dt>A report says the scope was capped. What now?</dt>
-        <dd>Only the first 500 issues were read, so totals may be incomplete. Narrow the scope (a tighter JQL, or split into several cost projects) so each stays under the limit.</dd>
+        <dd>Only the first 500 issues were read, so totals may be incomplete. The warning shows how many issues the scope really holds ("first 500 of about 1,234"). Split the project by Jira space, or narrow its JQL by period (for example add <code class="field">AND created &gt;= "2026-01-01"</code>), so each cost project stays under the limit.</dd>
         <dt>Can one Jira project belong to more than one cost project?</dt>
         <dd>Yes. Scope is defined independently each time, so the same Jira project can be covered by several cost projects — split by cost account, for instance — at once.</dd>
         <dt>I can't open or edit a project.</dt>
