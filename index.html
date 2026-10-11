@@ -265,8 +265,18 @@
       <h3>Roles</h3>
       <p>A role is a named group with a shared cost and billing rate, for example Developer or Designer. Roles belong to one cost project and are not shared between projects. Deleting a role does not remove its people; they are simply unassigned and fall to the next tier. Roles are limited to 60 characters and their names must be unique within the project, ignoring case.</p>
 
+      <h3>Rates that change over time</h3>
+      <p>A person's own rate can have a start date. On the Team tab, open the row's <strong>···</strong> menu and choose <em>Edit cost rate and history</em> (or billing rate). Enter the new rate and, optionally, <strong>Effective from</strong>:</p>
+      <ul>
+        <li><strong>With a date</strong>, hours logged on or after that day use the new rate and earlier hours keep their old one. Work logged before the person's first dated rate falls through to the next tier (cost account, role, project default).</li>
+        <li><strong>Without a date</strong>, the rate applies to all hours, past and future, and replaces the history. This is how rates behaved before dates were added, and it is the default.</li>
+        <li>Each period records who set it and when. The history list in the same window shows every period.</li>
+        <li>An empty rate with a date starts a period with no own rate, so the person falls through to the next tier from that day.</li>
+      </ul>
+      <p>The Team table shows the rate in force today, for example <em>55 · 2 periods</em>. In reports a person with more than one rate in the period shows the average (cost divided by hours), labelled <em>mixed</em> where relevant.</p>
+
       <div class="callout warn">
-        <p><strong>Changing a rate reprices history.</strong> A rate has no start date. When you change it, all hours already logged, past and future alike, are recalculated at the new rate the next time the report refreshes. The app has no rate-by-period history. If last year's work must stay at last year's price, record it in a separate cost project, or keep the old scope in a project you no longer change.</p>
+        <p><strong>Role rates, cost-account rates and the project default do not have dates yet.</strong> Changing one of them still applies the new value to all hours, past and future, and recalculates history at the next refresh. To protect closed periods, give people their own dated rates instead of changing a role or default rate, or keep a closed period in a separate cost project.</p>
         <p>Rates are stored per project and expressed in that project's currency. Cost accounts are shared across the site, so an account's rate is a plain number applied as-is in each project's own currency, with no conversion.</p>
       </div>
     </section>
@@ -340,7 +350,7 @@
         <dt>A project shows zero cost. Why?</dt>
         <dd>Cost comes only from worklogs on issues matching the project's scope. Check the scope JQL in Settings, that the matching issues actually have logged time, and that a rate is actually set. A new monetary project has a default rate of 0 until you set one (see <a href="#rates">Rates</a>).</dd>
         <dt>I changed a rate and the old numbers changed too. Is that a bug?</dt>
-        <dd>No, it is by design. A rate has no start date, so the new rate applies to all hours, past and future. See <a href="#rates">Rates</a> for how to keep a frozen history.</dd>
+        <dd>It depends on which rate. A person's own rate can have an <em>Effective from</em> date, so older hours keep their old rate; leave the date empty and the change applies to all hours. Role rates, cost-account rates and the project default have no dates yet, so changing them recalculates history. See <a href="#rates">Rates</a>.</dd>
         <dt>Why does a person show a rate I never entered?</dt>
         <dd>It comes from a lower tier: a cost account, their role, or the project default. The label next to the rate says which. "Mixed" means an account's rate covered only some of their worklogs, and the figure shown is the average.</dd>
         <dt>Time-based or monetary: can I change it later?</dt>
