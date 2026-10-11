@@ -1,0 +1,74 @@
+<!--meta {"title": "Privacy policy", "desc": "A Jira app by Vudia. This page explains exactly what the app reads from Jira, what it stores, and what it never touches."} -->
+<section id="summary">
+      <h2>Summary</h2>
+      <p>Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure — it has no servers of its own and makes no outbound network call to anything outside Atlassian. We do not operate any system that receives your data, and we cannot see the data your site holds in the app. The app reads issues, worklogs, and user names using the permissions of whoever is using it, and stores the projects, rates, expenses and reports your users enter in Forge storage, scoped to your own site.</p>
+    </section>
+
+    <section id="reads">
+      <h2>What it reads from Jira</h2>
+      <p>Depending on what a feature needs, and always live, using the viewer's own Jira permissions:</p>
+      <ul>
+        <li>Issue key, summary, status, type, created/due dates, and the status-category change date, for issues matching a cost project's own scope</li>
+        <li>Worklogs on those issues — author account ID and display name, time spent, and date</li>
+        <li>The list of Jira projects on your site, to populate the project/space picker</li>
+        <li>User search results, to add people to a team, share a project, or transfer ownership</li>
+        <li>The caller's own account profile, and whether they hold the site's <code class="field">ADMINISTER</code> permission, to gate site-wide setup screens</li>
+      </ul>
+      <p>None of it is copied anywhere outside your site.</p>
+    </section>
+
+    <section id="writes">
+      <h2>What it writes to Jira</h2>
+      <p>Nothing. The app never creates, edits, transitions, or comments on a Jira issue — it only reads.</p>
+    </section>
+
+    <section id="stores">
+      <h2>What it stores</h2>
+      <p>In Forge storage, scoped to your site: the cost projects, portfolios, roles, hourly rates, team memberships, expenses, revenue entries, budgets, milestones, cost accounts, custom attributes and saved reports that your users create, plus a short-lived cache of computed report totals (recomputed every ~15 minutes, or sooner after a change that affects the numbers).</p>
+      <div class="not-list">
+        <span class="not-pill">passwords</span>
+        <span class="not-pill">API tokens</span>
+        <span class="not-pill">payment details</span>
+        <span class="not-pill">issue content beyond what's listed above</span>
+      </div>
+    </section>
+
+    <section id="sensitive">
+      <h2>Rates are sensitive data</h2>
+      <p>Hourly cost and billing rates are tied to named people and can reveal compensation-related information. Who can see a project's rates is controlled by that project's own sharing settings — set, and changeable only, by its owner. There's no feature that surfaces one project's rates to someone who isn't given access to that project.</p>
+    </section>
+
+    <section id="retention">
+      <h2>Retention &amp; deletion</h2>
+      <p>Data stays in your site's Forge storage until your users delete it in the app, or until the app is uninstalled. Deleting a cost project removes its own rates, team, expenses, revenue, budget and milestones; it does not retroactively scrub it from a portfolio's history, which instead shows a "member was deleted" note. Removal of storage after uninstall follows Atlassian's own Forge retention policy.</p>
+    </section>
+
+    <section id="location">
+      <h2>Where data is stored</h2>
+      <p>Inside Atlassian's own Forge storage platform, in the same data residency as the rest of your Jira site. Nothing leaves Atlassian's infrastructure — the app declares no permission to call any external service.</p>
+    </section>
+
+    <section id="logs">
+      <h2>Logs</h2>
+      <p>The app writes a diagnostic log line only when something fails unexpectedly. These logs are not used to reconstruct rates, expenses, or other figures you've entered.</p>
+    </section>
+
+    <section id="tracking">
+      <h2>Analytics &amp; tracking</h2>
+      <p>None. The app contains no analytics, no tracking pixels, no advertising, and no third-party scripts of any kind.</p>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p>Because we hold no copy of your data outside your own Forge storage, requests to access, correct, or delete it are handled directly inside the app and Jira by your site administrators — sharing settings determine who can reach a given project's data, and a site admin can always reach it. If you have a question we haven't answered here, contact us using the details below.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If what the app reads, writes, or stores changes, this page changes with it.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><a href="mailto:info@vudia.site">info@vudia.site</a></p>
+    </section>

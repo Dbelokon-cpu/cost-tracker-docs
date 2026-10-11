@@ -1,0 +1,35 @@
+<!--meta {"title": "Permissions and access", "desc": "Who can do what in the app, and which Jira permissions the app itself asks for."} -->
+<h2>Who can do what</h2>
+<p>Access is decided per project. See <a href="sharing.html">Sharing and ownership</a> for how people are given a level.</p>
+<div class="tablewrap"><table>
+  <tr><th>Action</th><th>Viewer</th><th>Editor</th><th>Owner</th><th>Site admin</th></tr>
+  <tr><td>Open a project and read its figures</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes, even if not shared with them</td></tr>
+  <tr><td>Change settings, rates, team, expenses, revenue, budget, milestones</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes, as owner</td></tr>
+  <tr><td>Change sharing, transfer ownership, delete the project</td><td>No</td><td>No</td><td>Yes</td><td>Yes, as owner</td></tr>
+  <tr><td>Create a project</td><td colspan="4">Anyone using the app; the creator becomes its owner.</td></tr>
+</table></div>
+<div class="tablewrap"><table>
+  <caption>Portfolios</caption>
+  <tr><th>Action</th><th>Viewer</th><th>Owner</th></tr>
+  <tr><td>Open it and read its figures</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>Add or remove projects, edit the description, share it, delete it</td><td>No</td><td>Yes</td></tr>
+</table></div>
+<div class="tablewrap"><table>
+  <caption>Site-wide setup</caption>
+  <tr><th>Resource</th><th>See it</th><th>Create, edit, delete</th></tr>
+  <tr><td>Cost accounts</td><td>Everyone</td><td>Jira site administrators</td></tr>
+  <tr><td>Attributes</td><td>Everyone</td><td>Jira site administrators</td></tr>
+  <tr><td>Role library</td><td>Everyone</td><td>Jira site administrators</td></tr>
+  <tr><td>Reports</td><td colspan="2">A report's data is limited by the project it reads: you only see figures for projects you can open.</td></tr>
+</table></div>
+<p>Hourly rates are tied to named people and can reveal compensation-related information. Who sees a project's rates is controlled by that project's sharing settings, and nothing in the app shows one project's rates to someone without access to it.</p>
+
+<h2>Permissions the app asks for</h2>
+<p>The app requests three Forge permissions and nothing else:</p>
+<div class="tablewrap"><table>
+  <tr><th>Permission</th><th>Used for</th></tr>
+  <tr><td class="f">read:jira-work</td><td>Searching issues and reading their worklogs and dates, listing Jira projects, and checking whether you are a site administrator.</td></tr>
+  <tr><td class="f">read:jira-user</td><td>Showing people's names and finding users to add as members or to share with.</td></tr>
+  <tr><td class="f">storage:app</td><td>Keeping the app's own data (projects, rates, expenses) in Forge storage.</td></tr>
+</table></div>
+<p>Jira is only ever read, never written to. Requests to Jira run as the person using the app. Cost Tracker declares no external network access and no web triggers. Details: <a href="privacy.html">Privacy policy</a> and <a href="security.html">Security policy</a>.</p>

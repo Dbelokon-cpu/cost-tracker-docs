@@ -1,0 +1,28 @@
+<!--meta {"title": "FAQ and support", "desc": "Short answers to common questions, and how to reach support."} -->
+<dl class="faq">
+  <dt>Does it replace Jira's own time tracking?</dt>
+  <dd>No. It reads the worklogs your team already logs in Jira. There is no second place to log time.</dd>
+  <dt>Does the app change anything in Jira?</dt>
+  <dd>No. It only reads issues, worklogs and users. It never creates, edits or comments on an issue.</dd>
+  <dt>Can one Jira project belong to more than one cost project?</dt>
+  <dd>Yes. Scope is defined independently each time, so the same Jira project can be covered by several cost projects at once, for example one per cost account.</dd>
+  <dt>Time-based or monetary: can I change it later?</dt>
+  <dd>Yes, in Settings, and the app asks you to confirm first. Nothing is converted: the budget and milestone numbers keep their values and are simply read as hours or as currency amounts, so review them. See <a href="projects.html#changing-the-type-or-currency">changing the type or currency</a>.</dd>
+  <dt>A person's rate went up. How do I keep last month's cost?</dt>
+  <dd>Set the new rate with an <em>Effective from</em> date. Hours before that date keep the old rate. See <a href="rates.html#rates-that-change-over-time">Rates that change over time</a>.</dd>
+  <dt>Why does the app say hourly rates are not set?</dt>
+  <dd>Logged time is being counted at 0 only because no rate applies to it. A new monetary project starts with a default rate of 0. A rate you set to 0 on purpose does not trigger the banner.</dd>
+  <dt>Why does a person show a rate I never entered?</dt>
+  <dd>It comes from a lower level: a cost account, their role, or the project default. The label next to the rate says which; "mixed" means an account's rate covered only some of their worklogs.</dd>
+  <dt>Is there a limit on project size?</dt>
+  <dd>Yes: 500 issues per project. This is a deliberate limit. See <a href="limits.html">Limits and behaviour</a> for how to split a large project.</dd>
+  <dt>Are different currencies converted?</dt>
+  <dd>No. Each project has one currency, and a portfolio or report adds money only across projects that share it.</dd>
+  <dt>Can I export data?</dt>
+  <dd>Yes, to XLSX, from expenses, fixed revenue, portfolios and reports.</dd>
+  <dt>Where does the data live?</dt>
+  <dd>In Forge storage on your own Atlassian site. See the <a href="privacy.html">privacy policy</a> for exactly what is kept.</dd>
+</dl>
+
+<h2 id="support">Support</h2>
+<p>Questions, bug reports or feature requests: <a href="mailto:info@vudia.site">info@vudia.site</a>. To help us answer quickly, include the project name, what you expected, what you saw and a screenshot if possible. Security reports go to the address on the <a href="security.html">security page</a>.</p>

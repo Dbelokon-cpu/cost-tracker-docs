@@ -1,0 +1,35 @@
+<!--meta {"title": "Expenses", "desc": "Record costs that do not come from logged time, one-off or recurring, and see them counted in actual cost and the forecast."} -->
+<p>Expenses are costs that worklogs do not capture: software licences, travel, hardware, contractor invoices. They are added to labor cost to give the project's <strong>actual cost</strong>. On a time-based project, expenses are not part of cost, because cost there is hours.</p>
+
+<h2>Add an expense</h2>
+<ol class="steps">
+  <li>Open the project's <strong>Expenses</strong> tab and choose to add an expense.</li>
+  <li>Fill in <strong>Summary</strong>, <strong>Amount</strong> (greater than 0), <strong>Date</strong> and, if you like, a free-text <strong>Category</strong> such as Infrastructure.</li>
+  <li>If cost accounts exist, you can book the expense to an <strong>Account</strong> (optional).</li>
+  <li>Save. The expense counts toward actual cost immediately.</li>
+</ol>
+<p>The Add button stays disabled until Summary, Amount and Date are filled in. Dates use Jira's own style, for example <em>Oct 22, 2026</em>.</p>
+
+<h2>Recurring expenses</h2>
+<p>Turn on <strong>Recurring</strong> for a cost that repeats, such as a monthly hosting fee. Choose how often (<em>Repeat every N months</em>) and when it stops:</p>
+<ul>
+  <li>at the project's end date,</li>
+  <li>on a specific date, or</li>
+  <li>after a number of occurrences.</li>
+</ul>
+<p>A recurring expense projects forward into the forecast the same way actual expenses count backward into cost. If it has to stop at the project's end date and the project has none, the tab says it needs one.</p>
+
+<h2>What the tab shows</h2>
+<div class="tablewrap"><table>
+  <tr><th>Figure</th><th>Meaning</th></tr>
+  <tr><td class="f">Actual expenses</td><td>Recorded so far.</td></tr>
+  <tr><td class="f">Remaining expenses</td><td>Recurring expenses still to come, until they end.</td></tr>
+  <tr><td class="f">Projected expenses</td><td>Actual plus remaining.</td></tr>
+</table></div>
+<div class="example">
+  <strong>Example: Website redesign</strong>
+  <p>A design-tool licence of 200 (one-off) and hosting at 50 per month. After the first month's hosting, actual expenses are 250. Added to the 1,120 labor cost from the <a href="quick-start.html">quick start</a>, actual cost is 1,370.</p>
+</div>
+
+<h2>Editing and deleting</h2>
+<p>Editors and the owner can edit an expense. Deleting asks for confirmation. Expenses booked to a cost account that is later deleted are shown as "No account". Use <strong>Export to XLSX</strong> to download the list.</p>

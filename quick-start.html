@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick start · Cost Tracker documentation</title>
+<meta name="description" content="Create a cost project, set rates and see real numbers in about ten minutes. The same example is used throughout these docs.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html" aria-current="page">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Start</div>
+    <h1>Quick start</h1>
+    <p class="subtitle">Create a cost project, set rates and see real numbers in about ten minutes. The same example is used throughout these docs.</p>
+    <h2 id="the-example-project">The example project<a class="h-anchor" href="#the-example-project" aria-label="Link to this section">#</a></h2>
+    <p>These docs use one small project so the numbers can be followed from page to page. You do not need the same data; any Jira space with a few worklogs will do.</p>
+    <div class="example">
+      <strong>Example: Website redesign</strong>
+      <p>A monetary project in USD that reads the Jira space <code>WEB</code>. Three people logged time in July 2026:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Person</th><th>Set up as</th><th>Hours logged</th></tr>
+        <tr><td>Anna</td><td>Own rate 50/h</td><td class="num">10 h</td></tr>
+        <tr><td>Ben</td><td>Role "Developer" at 40/h</td><td class="num">5 h on a CAPEX issue, 5 h on other issues</td></tr>
+        <tr><td>Carol</td><td>No rate of her own, no role</td><td class="num">4 h</td></tr>
+      </table></div>
+      <p>The project default rate is 30/h, and a cost account "Capitalised work" (JQL <code>labels = capex</code>) has a rate of 60/h.</p>
+    </div>
+
+    <h2 id="create-the-project">Create the project<a class="h-anchor" href="#create-the-project" aria-label="Link to this section">#</a></h2>
+    <ol class="steps">
+      <li>Open <strong>Cost Tracker</strong> from the Jira <strong>Apps</strong> menu and choose <strong>Create project</strong>.</li>
+      <li>Give it a name and a <strong>scope</strong>: pick the Jira space <code>WEB</code>, or write a JQL filter. The scope is checked against your site before it is saved.</li>
+      <li>Choose the <strong>project type</strong>. <em>Monetary-based</em> computes cost and budget in a currency from hourly rates. <em>Time-based</em> uses hours only and no rates. You can change this later, but nothing is converted (see <a href="projects.html#changing-the-type-or-currency">changing the type or currency</a>).</li>
+      <li>Set the currency (USD) and, under <strong>Settings → Rates and revenue</strong>, a <strong>Default hourly rate</strong> of 30.</li>
+    </ol>
+    <div class="callout warn"><p><strong>Do not skip the default rate.</strong> A new monetary project starts with a default rate of 0, so time is counted but priced at 0 until some rate applies. The app shows an "Hourly rates are not set" banner on Overview, Team and Revenue while this is the case.</p></div>
+
+    <h2 id="set-rates">Set rates<a class="h-anchor" href="#set-rates" aria-label="Link to this section">#</a></h2>
+    <ol class="steps">
+      <li>Open the <strong>Team</strong> tab. Everyone who logged time in the scope is already listed.</li>
+      <li>In the <strong>Roles</strong> card, add the role <em>Developer</em> with a cost rate of 40, then give Ben that role in the table.</li>
+      <li>For Anna, open the <strong>···</strong> menu on her row, choose <em>Edit cost rate and history</em> and enter 50. Leave <em>Effective from</em> empty for now.</li>
+      <li>Create the cost account (a Jira administrator does this under <strong>Accounts</strong>): name "Capitalised work", JQL <code>labels = capex</code>, cost rate 60.</li>
+    </ol>
+
+    <h2 id="check-the-result">Check the result<a class="h-anchor" href="#check-the-result" aria-label="Link to this section">#</a></h2>
+    <p>Each worklog takes the first rate that applies, in this order: the person's own rate, the cost account's, the role's, then the project default. For the example:</p>
+    <div class="tablewrap"><table>
+      <tr><th>Worklog</th><th>Rate used</th><th>Why</th><th class="num">Cost</th></tr>
+      <tr><td>Anna, 10 h</td><td class="f">50</td><td>Her own rate wins over everything</td><td class="num">500</td></tr>
+      <tr><td>Ben, 5 h on a CAPEX issue</td><td class="f">60</td><td>He has no own rate, and the account's rate beats his role</td><td class="num">300</td></tr>
+      <tr><td>Ben, 5 h on other issues</td><td class="f">40</td><td>No own or account rate, so his role applies</td><td class="num">200</td></tr>
+      <tr><td>Carol, 4 h</td><td class="f">30</td><td>Nothing else matches, so the project default applies</td><td class="num">120</td></tr>
+      <tr><td colspan="3"><strong>Labor cost</strong></td><td class="num"><strong>1,120</strong></td></tr>
+    </table></div>
+    <p>Open <strong>Overview</strong> and <strong>Team</strong> to see the same figures. If cost shows 0, see <a href="troubleshooting.html#cost-shows-0">Troubleshooting</a>.</p>
+
+    <h2 id="what-to-add-next">What to add next<a class="h-anchor" href="#what-to-add-next" aria-label="Link to this section">#</a></h2>
+    <ul>
+      <li><a href="expenses.html">Expenses</a> for licences and other costs that are not logged time.</li>
+      <li>A <a href="budget.html">budget</a> to compare cost against.</li>
+      <li><a href="revenue.html">Revenue</a> to see profit and margin.</li>
+      <li>A <a href="rates.html#rates-that-change-over-time">dated rate</a> when someone's rate changes, so earlier months keep their old price.</li>
+    </ul>
+    <div class="pagenav"><a class="prev" href="index.html"><small>Previous</small>Overview</a><a class="next" href="how-cost-works.html"><small>Next</small>How cost is calculated</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#the-example-project">The example project</a>
+    <a href="#create-the-project">Create the project</a>
+    <a href="#set-rates">Set rates</a>
+    <a href="#check-the-result">Check the result</a>
+    <a href="#what-to-add-next">What to add next</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

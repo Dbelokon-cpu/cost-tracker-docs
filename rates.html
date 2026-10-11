@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rates, roles and the team · Cost Tracker documentation</title>
+<meta name="description" content="How an hourly rate is chosen for each worklog, how roles and cost accounts fit in, and how to change a rate without rewriting history.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html" aria-current="page">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Concepts</div>
+    <h1>Rates, roles and the team</h1>
+    <p class="subtitle">How an hourly rate is chosen for each worklog, how roles and cost accounts fit in, and how to change a rate without rewriting history.</p>
+    <p>This page applies to <strong>monetary</strong> projects. A time-based project has no rates: the Team tab shows hours only. Roles still work there and feed the "Top roles" breakdown.</p>
+
+    <h2 id="who-appears-on-the-team-tab">Who appears on the Team tab<a class="h-anchor" href="#who-appears-on-the-team-tab" aria-label="Link to this section">#</a></h2>
+    <p>Everyone who logged time in the project's scope appears automatically, plus anyone you add explicitly. A role or a personal rate is optional and never a condition for being counted.</p>
+    <p>You can add people who have not logged anything yet by searching Jira users. Only existing users of your Jira site can be found. The app cannot invite people or send email, so invite a new colleague to the Jira site first. App accounts are not offered.</p>
+
+    <h2 id="how-a-rate-is-chosen">How a rate is chosen<a class="h-anchor" href="#how-a-rate-is-chosen" aria-label="Link to this section">#</a></h2>
+    <p>Every worklog is priced individually. For each one the app takes the first rate it finds in this order, and stops:</p>
+    <div class="tablewrap"><table>
+      <tr><th>Priority</th><th>Source</th><th>Where you set it</th></tr>
+      <tr><td class="f">1 (highest)</td><td>The person's own rate</td><td>Team tab, row menu <strong>···</strong></td></tr>
+      <tr><td class="f">2</td><td>The rate of the cost account the issue belongs to</td><td>Accounts (site administrators)</td></tr>
+      <tr><td class="f">3</td><td>The rate of the person's role</td><td>Team tab, Roles card</td></tr>
+      <tr><td class="f">4 (fallback)</td><td>The project's default hourly rate</td><td>Settings → Rates and revenue</td></tr>
+    </table></div>
+    <p>A cost account's rate depends on the <em>issue</em>, not the person, so one person can be priced differently on different issues in the same period. The Team table labels each rate by where it came from: their own rate, <em>account</em>, <em>role</em>, <em>default rate</em>, or <em>mixed</em> when an account's rate covered only some of their worklogs. For a person with more than one rate the table shows the average, which is cost divided by hours.</p>
+
+    <h3 id="example">Example<a class="h-anchor" href="#example" aria-label="Link to this section">#</a></h3>
+    <p>Using the <a href="quick-start.html">example project</a>: Anna's own rate is 50, Ben has no own rate and the role Developer (40), Carol has nothing, the account "Capitalised work" is 60 and the project default is 30.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Worklog</th><th>Rate used</th><th>Why</th><th class="num">Cost</th></tr>
+      <tr><td>Anna, 10 h, any issue</td><td class="f">50</td><td>Her own rate beats the account's 60 and everything else</td><td class="num">500</td></tr>
+      <tr><td>Ben, 5 h, issue in the account</td><td class="f">60</td><td>No own rate, so the account's rate wins over his role</td><td class="num">300</td></tr>
+      <tr><td>Ben, 5 h, ordinary issue</td><td class="f">40</td><td>No own or account rate, so his role applies</td><td class="num">200</td></tr>
+      <tr><td>Carol, 4 h</td><td class="f">30</td><td>Nothing else matches, so the project default applies</td><td class="num">120</td></tr>
+    </table></div>
+
+    <h2 id="cost-rate-and-billing-rate">Cost rate and billing rate<a class="h-anchor" href="#cost-rate-and-billing-rate" aria-label="Link to this section">#</a></h2>
+    <p>Each person, role and account can carry two rates: a <strong>cost rate</strong> (what the person costs the business) and a <strong>billing rate</strong> (what the client is charged). They are resolved independently with the same order, so they can come from different tiers. Billing rates matter only when <a href="revenue.html">hourly revenue</a> is on; with a fixed-price project they are hidden.</p>
+
+    <h2 id="empty-is-not-zero">Empty is not zero<a class="h-anchor" href="#empty-is-not-zero" aria-label="Link to this section">#</a></h2>
+    <p>Leaving a rate field empty means "not set here, use the next one". Entering <code>0</code> means "this work is free" (unpaid or internal work) and is respected as a real rate. Clearing a rate you entered earlier removes it completely and returns the person to the next level; it does not leave a hidden zero.</p>
+
+    <h2 id="roles">Roles<a class="h-anchor" href="#roles" aria-label="Link to this section">#</a></h2>
+    <p>A role is a named group with a shared cost and billing rate, for example Developer or Designer. Roles belong to one cost project and are not shared between projects. A site administrator can keep a library of common roles (Setup → Roles) that you can quick-pick when adding a role to a project.</p>
+    <ul>
+      <li>Deleting a role does not remove its people. They are unassigned and fall to the next level.</li>
+      <li>A role name can be up to 60 characters and must be unique within the project, ignoring case.</li>
+      <li>Picking a role for someone also makes them an explicit team member, because that is where the role is stored.</li>
+    </ul>
+
+    <h2 id="rates-that-change-over-time">Rates that change over time<a class="h-anchor" href="#rates-that-change-over-time" aria-label="Link to this section">#</a></h2>
+    <p>Every rate can have a start date: a person's own rate, a role's, a cost account's and the project default. Each worklog is priced by the rate in force on the day it was logged, at every level of the order above. So raising a rate from 1 August leaves July's cost alone.</p>
+    <h3 id="how-to-change-a-rate-from-a-date">How to change a rate from a date<a class="h-anchor" href="#how-to-change-a-rate-from-a-date" aria-label="Link to this section">#</a></h3>
+    <ul>
+      <li><strong>A person's rate:</strong> Team tab, the row's <strong>···</strong> menu, <em>Edit cost rate and history</em> (or billing rate).</li>
+      <li><strong>A role's rate:</strong> click the rate on the role's row in the Roles card.</li>
+      <li><strong>The project default:</strong> Settings → Rates and revenue → <em>Edit rates and history</em>.</li>
+      <li><strong>A cost account's rate:</strong> the account's edit form, <em>Edit rates and history</em> (site administrators).</li>
+    </ul>
+    <p>All four open the same window: enter the new rate and, optionally, <strong>Effective from</strong>.</p>
+    <ul>
+      <li><strong>With a date</strong>, hours logged on or after that day use the new rate and earlier hours keep their old one. Work logged before a person's first dated rate falls through to the next level.</li>
+      <li><strong>Without a date</strong>, the rate applies to all hours, past and future, and replaces the history.</li>
+      <li>An empty rate with a date starts a period with no own rate, so from that day the next level applies.</li>
+      <li>Each period records who set it and when, and the same window lists every period.</li>
+      <li>Saving a form without changing a rate never adds a period or erases the history. Renaming a role is safe.</li>
+    </ul>
+    <div class="example">
+      <strong>Example: raising the Developer rate</strong>
+      <p>Ben's role Developer is 40. On 1 August the rate becomes 45, so you set 45 with <em>Effective from</em> = 1 Aug 2026. His 5 hours on an ordinary issue in July stay at 40 (200); the same hours in August cost 225. Without the date, July would be repriced to 225 as well.</p>
+    </div>
+
+    <h2 id="reading-the-team-tab">Reading the Team tab<a class="h-anchor" href="#reading-the-team-tab" aria-label="Link to this section">#</a></h2>
+    <div class="tablewrap"><table>
+      <tr><th>You see</th><th>It means</th></tr>
+      <tr><td class="f">55 · 2 periods</td><td>The rate in force today is 55, and this rate has two periods (open the editor to see them).</td></tr>
+      <tr><td class="f">40 (role)</td><td>The person has no own rate; their role's 40 applies.</td></tr>
+      <tr><td class="f">default</td><td>Nothing of their own, no role rate; the project default applies.</td></tr>
+    </table></div>
+    <p>If hours are counted at 0 only because no rate applies yet, a banner says how many hours. See <a href="troubleshooting.html#cost-shows-0">cost shows 0</a>.</p>
+    <div class="pagenav"><a class="prev" href="how-cost-works.html"><small>Previous</small>How cost is calculated</a><a class="next" href="projects.html"><small>Next</small>Cost projects and scope</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#who-appears-on-the-team-tab">Who appears on the Team tab</a>
+    <a href="#how-a-rate-is-chosen">How a rate is chosen</a>
+    <a href="#cost-rate-and-billing-rate">Cost rate and billing rate</a>
+    <a href="#empty-is-not-zero">Empty is not zero</a>
+    <a href="#roles">Roles</a>
+    <a href="#rates-that-change-over-time">Rates that change over time</a>
+    <a href="#reading-the-team-tab">Reading the Team tab</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

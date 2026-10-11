@@ -1,0 +1,46 @@
+<!--meta {"title": "Cost projects and scope", "desc": "Create and manage cost projects: what a scope is, the project tabs, the Projects table, statuses, attributes and changing the type or currency."} -->
+<h2>Scope: spaces or JQL</h2>
+<p>A cost project's scope is set when you create it, from one of two modes, and can be changed later in Settings:</p>
+<div class="tablewrap"><table>
+  <tr><th>Mode</th><th>What it matches</th></tr>
+  <tr><td class="f">Jira Spaces</td><td>One or more Jira projects, joined with OR. You pick them from a list.</td></tr>
+  <tr><td class="f">Jira Filter</td><td>Any JQL you write, for scopes a space selector cannot express, such as a label across several projects.</td></tr>
+</table></div>
+<p>Either way the scope becomes one JQL string, which is checked against your site before it is saved. That string is everything the project reads. A cost project can therefore cover one or several Jira projects, and a single Jira project can be covered by more than one cost project at once (for example split by cost account).</p>
+<p>A project reads up to 500 issues. See <a href="limits.html">Limits and behaviour</a> for what happens beyond that and how to split a large project.</p>
+
+<h2>The Projects table</h2>
+<p>The home page lists every project you can see. The table fills in progressively: names and statuses appear at once, and the financial columns (Budget, Actual, Remaining, Progress) fill in as each project finishes calculating.</p>
+<ul>
+  <li><strong>Search and filters</strong> by status, owner, tags and project attributes.</li>
+  <li><strong>Columns</strong> can be shown or hidden with the column configuration at the right edge. Column widths are not remembered after a reload.</li>
+  <li><strong>Sorting:</strong> click a column header.</li>
+</ul>
+
+<h2>Project tabs</h2>
+<div class="tablewrap"><table>
+  <tr><th>Tab</th><th>What it shows</th></tr>
+  <tr><td class="f">Overview</td><td>Budget, actual cost, remaining budget, revenue and profit, the monthly cost chart, and schedule, scope and cost progress.</td></tr>
+  <tr><td class="f">Scope</td><td>Every issue the project counts, with time spent and cost, plus cost by month.</td></tr>
+  <tr><td class="f">Team</td><td>People, roles and hourly rates. See <a href="rates.html">Rates, roles and the team</a>.</td></tr>
+  <tr><td class="f">Expenses</td><td>Costs that do not come from logged time. See <a href="expenses.html">Expenses</a>.</td></tr>
+  <tr><td class="f">Revenue</td><td>What the project earns and the profit. See <a href="revenue.html">Revenue and profit</a>.</td></tr>
+  <tr><td class="f">Settings</td><td>General, Rates and revenue, Project Attributes, Sharing and Delete project.</td></tr>
+</table></div>
+
+<h2>Status, tags and timeframe</h2>
+<p>A project's status is informational and used for filtering: To do, In progress, On hold, Completed or Archived. Tags are free-form words for organising the table. The timeframe (start and end date) is optional and open-ended on either side; if you leave it empty, the Overview shows the dates calculated from the project's issues.</p>
+
+<h2>Changing the type or currency</h2>
+<p>You can change a project between monetary and time-based, or change its currency, in Settings. The app asks you to confirm first, because <strong>nothing stored is converted</strong>:</p>
+<ul>
+  <li><strong>Monetary to time-based:</strong> cost and budget are shown in hours. Rates, revenue and billing are kept but hidden. The budget and milestone numbers you entered stay as they are and are now read as hours, so review them.</li>
+  <li><strong>Time-based to monetary:</strong> cost is calculated from hourly rates, which are 0 until you set them. The budget and milestone numbers are now read as currency amounts.</li>
+  <li><strong>Changing only the currency</strong> changes only the label. The budget, milestones, expenses, fixed revenue and rates keep their numbers and are not converted.</li>
+</ul>
+
+<h2>Project attributes</h2>
+<p>Attributes are custom fields (text, number, a pick-one list or a date) that a Jira site administrator defines once under <strong>Attributes</strong> and attaches to specific projects. An attribute that is attached to no project is hidden everywhere. Once attached, it appears in that project's Settings, can be filled in, and shows as a column in the Projects table. Everyone can see attributes; only site administrators can create, edit or delete them.</p>
+
+<h2>Deleting a project</h2>
+<p>Only the owner can delete a project. This removes its rates, team, expenses, revenue entries, budget and milestones; the linked Jira issues are untouched. A portfolio that contained the project keeps working and notes that the member was deleted and is excluded from its totals.</p>

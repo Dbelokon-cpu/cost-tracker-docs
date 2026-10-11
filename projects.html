@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost projects and scope · Cost Tracker documentation</title>
+<meta name="description" content="Create and manage cost projects: what a scope is, the project tabs, the Projects table, statuses, attributes and changing the type or currency.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html" aria-current="page">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Guides</div>
+    <h1>Cost projects and scope</h1>
+    <p class="subtitle">Create and manage cost projects: what a scope is, the project tabs, the Projects table, statuses, attributes and changing the type or currency.</p>
+    <h2 id="scope-spaces-or-jql">Scope: spaces or JQL<a class="h-anchor" href="#scope-spaces-or-jql" aria-label="Link to this section">#</a></h2>
+    <p>A cost project's scope is set when you create it, from one of two modes, and can be changed later in Settings:</p>
+    <div class="tablewrap"><table>
+      <tr><th>Mode</th><th>What it matches</th></tr>
+      <tr><td class="f">Jira Spaces</td><td>One or more Jira projects, joined with OR. You pick them from a list.</td></tr>
+      <tr><td class="f">Jira Filter</td><td>Any JQL you write, for scopes a space selector cannot express, such as a label across several projects.</td></tr>
+    </table></div>
+    <p>Either way the scope becomes one JQL string, which is checked against your site before it is saved. That string is everything the project reads. A cost project can therefore cover one or several Jira projects, and a single Jira project can be covered by more than one cost project at once (for example split by cost account).</p>
+    <p>A project reads up to 500 issues. See <a href="limits.html">Limits and behaviour</a> for what happens beyond that and how to split a large project.</p>
+
+    <h2 id="the-projects-table">The Projects table<a class="h-anchor" href="#the-projects-table" aria-label="Link to this section">#</a></h2>
+    <p>The home page lists every project you can see. The table fills in progressively: names and statuses appear at once, and the financial columns (Budget, Actual, Remaining, Progress) fill in as each project finishes calculating.</p>
+    <ul>
+      <li><strong>Search and filters</strong> by status, owner, tags and project attributes.</li>
+      <li><strong>Columns</strong> can be shown or hidden with the column configuration at the right edge. Column widths are not remembered after a reload.</li>
+      <li><strong>Sorting:</strong> click a column header.</li>
+    </ul>
+
+    <h2 id="project-tabs">Project tabs<a class="h-anchor" href="#project-tabs" aria-label="Link to this section">#</a></h2>
+    <div class="tablewrap"><table>
+      <tr><th>Tab</th><th>What it shows</th></tr>
+      <tr><td class="f">Overview</td><td>Budget, actual cost, remaining budget, revenue and profit, the monthly cost chart, and schedule, scope and cost progress.</td></tr>
+      <tr><td class="f">Scope</td><td>Every issue the project counts, with time spent and cost, plus cost by month.</td></tr>
+      <tr><td class="f">Team</td><td>People, roles and hourly rates. See <a href="rates.html">Rates, roles and the team</a>.</td></tr>
+      <tr><td class="f">Expenses</td><td>Costs that do not come from logged time. See <a href="expenses.html">Expenses</a>.</td></tr>
+      <tr><td class="f">Revenue</td><td>What the project earns and the profit. See <a href="revenue.html">Revenue and profit</a>.</td></tr>
+      <tr><td class="f">Settings</td><td>General, Rates and revenue, Project Attributes, Sharing and Delete project.</td></tr>
+    </table></div>
+
+    <h2 id="status-tags-and-timeframe">Status, tags and timeframe<a class="h-anchor" href="#status-tags-and-timeframe" aria-label="Link to this section">#</a></h2>
+    <p>A project's status is informational and used for filtering: To do, In progress, On hold, Completed or Archived. Tags are free-form words for organising the table. The timeframe (start and end date) is optional and open-ended on either side; if you leave it empty, the Overview shows the dates calculated from the project's issues.</p>
+
+    <h2 id="changing-the-type-or-currency">Changing the type or currency<a class="h-anchor" href="#changing-the-type-or-currency" aria-label="Link to this section">#</a></h2>
+    <p>You can change a project between monetary and time-based, or change its currency, in Settings. The app asks you to confirm first, because <strong>nothing stored is converted</strong>:</p>
+    <ul>
+      <li><strong>Monetary to time-based:</strong> cost and budget are shown in hours. Rates, revenue and billing are kept but hidden. The budget and milestone numbers you entered stay as they are and are now read as hours, so review them.</li>
+      <li><strong>Time-based to monetary:</strong> cost is calculated from hourly rates, which are 0 until you set them. The budget and milestone numbers are now read as currency amounts.</li>
+      <li><strong>Changing only the currency</strong> changes only the label. The budget, milestones, expenses, fixed revenue and rates keep their numbers and are not converted.</li>
+    </ul>
+
+    <h2 id="project-attributes">Project attributes<a class="h-anchor" href="#project-attributes" aria-label="Link to this section">#</a></h2>
+    <p>Attributes are custom fields (text, number, a pick-one list or a date) that a Jira site administrator defines once under <strong>Attributes</strong> and attaches to specific projects. An attribute that is attached to no project is hidden everywhere. Once attached, it appears in that project's Settings, can be filled in, and shows as a column in the Projects table. Everyone can see attributes; only site administrators can create, edit or delete them.</p>
+
+    <h2 id="deleting-a-project">Deleting a project<a class="h-anchor" href="#deleting-a-project" aria-label="Link to this section">#</a></h2>
+    <p>Only the owner can delete a project. This removes its rates, team, expenses, revenue entries, budget and milestones; the linked Jira issues are untouched. A portfolio that contained the project keeps working and notes that the member was deleted and is excluded from its totals.</p>
+    <div class="pagenav"><a class="prev" href="rates.html"><small>Previous</small>Rates, roles and the team</a><a class="next" href="expenses.html"><small>Next</small>Expenses</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#scope-spaces-or-jql">Scope: spaces or JQL</a>
+    <a href="#the-projects-table">The Projects table</a>
+    <a href="#project-tabs">Project tabs</a>
+    <a href="#status-tags-and-timeframe">Status, tags and timeframe</a>
+    <a href="#changing-the-type-or-currency">Changing the type or currency</a>
+    <a href="#project-attributes">Project attributes</a>
+    <a href="#deleting-a-project">Deleting a project</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

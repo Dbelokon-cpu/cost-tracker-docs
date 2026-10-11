@@ -1,0 +1,72 @@
+<!--meta {"title": "Troubleshooting", "desc": "Symptom, likely cause and what to do, for the problems people meet most often."} -->
+<p>Find the symptom, check the cause, follow the fix. If nothing here helps, see <a href="faq.html#support">support</a>.</p>
+
+<h2>Numbers</h2>
+
+<h3>Cost shows 0</h3>
+<div class="tablewrap"><table>
+  <tr><th>Check</th><th>What to do</th></tr>
+  <tr><td>Is there an "Hourly rates are not set" banner?</td><td>A new monetary project's default hourly rate is 0. Set a <em>Default hourly rate</em> in Settings → Rates and revenue, or rates per person or role on the Team tab.</td></tr>
+  <tr><td>Do the project's issues have logged time?</td><td>Cost comes only from worklogs on issues in the scope. Check the scope in Settings and that the issues really have time logged.</td></tr>
+  <tr><td>Is the project time-based?</td><td>Then there is no money, only hours. Switch to monetary in Settings if you need cost (see <a href="projects.html#changing-the-type-or-currency">changing the type</a>).</td></tr>
+  <tr><td>Is a rate set to 0 on purpose?</td><td>0 is a real rate (unpaid work) and does not trigger the banner. Clear the field to fall back to the next level.</td></tr>
+</table></div>
+
+<h3>Totals look incomplete or "first 500 of about N issues"</h3>
+<p><strong>Cause:</strong> a project reads at most 500 issues. <strong>Fix:</strong> split the project by Jira space or by period. See <a href="limits.html#if-a-project-is-over-500-issues">Limits and behaviour</a>.</p>
+
+<h3>I changed a rate and old numbers moved</h3>
+<p><strong>Cause:</strong> the change had no <em>Effective from</em> date, so it applied to all hours. <strong>Fix:</strong> to keep history, set the rate again with an <em>Effective from</em> date (a rate can have several periods); set the earlier rate on its own start date. See <a href="rates.html#rates-that-change-over-time">Rates that change over time</a>.</p>
+
+<h3>Overview and a report show different numbers</h3>
+<ul>
+  <li>The Overview totals everything logged; a report covers the <strong>timeframe</strong> you chose.</li>
+  <li>A report filtered by <strong>person</strong> shows labor only, because expenses cannot be attributed to a person.</li>
+  <li>The Overview is kept for about 15 minutes; a report reads Jira live. A worklog logged in the last minutes may appear in the report first.</li>
+</ul>
+
+<h3>A figure did not update after I logged time in Jira</h3>
+<p>Calculated figures are kept for about 15 minutes. Wait, or change something in the project (any rate, role or setting) to make it recompute straight away.</p>
+
+<h3>Revenue shows 0</h3>
+<ul>
+  <li><strong>Revenue tracking</strong> may be off (Settings → Rates and revenue).</li>
+  <li>With hourly billing, a banner says when no <em>billing</em> rate applies yet. Set a Default billing rate or billing rates.</li>
+  <li>With fixed price, revenue is the project's <strong>budget</strong>; set one.</li>
+  <li>Time-based projects have no revenue.</li>
+</ul>
+
+<h3>Portfolio totals are blank or missing</h3>
+<p>Money adds up only across monetary projects with the <strong>same currency</strong>. With mixed currencies, or only time-based members, the money totals are left out and the page says so. Hours still add up.</p>
+
+<h2>Access</h2>
+
+<h3>I cannot open or edit a project</h3>
+<p>Access is per project: owner, editor, viewer or none. Ask the project's owner to change its sharing (Settings → Sharing), or a Jira site administrator if the owner has left. A viewer can read but not change anything.</p>
+
+<h3>I cannot find a person to add</h3>
+<p>The search lists <strong>existing users of your Jira site</strong> only, and needs at least two letters. The app cannot invite people or send email: invite them to the Jira site first (Jira settings → User management → Invite user), then search again. App accounts are not offered.</p>
+
+<h3>I cannot create or edit accounts, attributes or library roles</h3>
+<p>These are site-wide and limited to <strong>Jira site administrators</strong>. Everyone can see them. Ask an administrator.</p>
+
+<h3>A project I expected is not in my portfolio or list</h3>
+<ul>
+  <li>It may be restricted and not shared with you.</li>
+  <li>If it was deleted, a portfolio notes that the member was excluded.</li>
+  <li>Only projects you can see can be added to a portfolio.</li>
+</ul>
+
+<h2>Setup</h2>
+
+<h3>Where is the app?</h3>
+<p>Open <strong>Cost Tracker</strong> from the <strong>Apps</strong> menu in the Jira sidebar. It is one global page; it does not appear inside individual Jira projects.</p>
+
+<h3>The scope is rejected when I save</h3>
+<p>The JQL is validated against your site. Fix the query (a misspelt field, an unknown project key) and save again. A project you cannot see in Jira is not found either.</p>
+
+<h3>A cost account stopped applying</h3>
+<p>If an account's JQL stops being valid (a field was deleted, for example), the account is skipped instead of breaking reports. Edit the account's JQL to fix it.</p>
+
+<h2>Still stuck?</h2>
+<p>Write to <a href="mailto:info@vudia.site">info@vudia.site</a> with the project name, what you expected, what you saw, and (if you can) a screenshot.</p>

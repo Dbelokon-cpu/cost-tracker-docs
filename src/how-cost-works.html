@@ -1,0 +1,37 @@
+<!--meta {"title": "How cost is calculated", "desc": "From a Jira worklog to a number on the Overview: what is read, how each hour is priced, and what is added."} -->
+<h2>The short version</h2>
+<ol class="steps">
+  <li>The app reads the issues that match the project's <a href="projects.html">scope</a> and the worklogs on them.</li>
+  <li>Each worklog is priced by the <a href="rates.html">rate</a> in force on the day it was logged. The sum of these is the <strong>labor cost</strong>.</li>
+  <li><a href="expenses.html">Expenses</a> are added. Labor plus expenses is the <strong>actual cost</strong>.</li>
+  <li>If revenue is tracked, <strong>profit</strong> is revenue minus actual cost, and <strong>margin</strong> is profit as a share of revenue.</li>
+</ol>
+<p>Jira is only read, never changed. Nobody has to log anything in Cost Tracker.</p>
+
+<h2>Pricing one worklog</h2>
+<p>Every worklog is priced on its own, not as total hours times one rate. This matters because the same person can be priced differently on different issues (a cost account's rate depends on the issue) and on different dates (a rate can change over time). For each worklog the app takes the first rate it finds, in this order:</p>
+<ol>
+  <li>the person's own rate,</li>
+  <li>the rate of the cost account the issue belongs to,</li>
+  <li>the rate of the person's role,</li>
+  <li>the project's default hourly rate.</li>
+</ol>
+<p>The date used is the day the worklog was logged for, as Jira stores it. Cost rates and billing rates are resolved separately with the same order. <a href="rates.html">Rates, roles and the team</a> has the full detail and an example.</p>
+
+<h2>Project types</h2>
+<div class="tablewrap"><table>
+  <tr><th>Type</th><th>Cost and budget are in</th><th>Rates</th><th>Revenue</th></tr>
+  <tr><td>Monetary-based</td><td>The project's currency</td><td>Yes</td><td>Optional</td></tr>
+  <tr><td>Time-based</td><td>Hours</td><td>No (the Team tab says so)</td><td>No, there is no currency to bill in</td></tr>
+</table></div>
+
+<h2>What the totals include</h2>
+<ul>
+  <li><strong>Overview and Team</strong> show everything logged on issues in scope. A <a href="reports.html">report</a> lets you pick a timeframe, a breakdown and a filter.</li>
+  <li><strong>Currency</strong> is a property of the project. Amounts are never converted between currencies.</li>
+  <li><strong>Issues beyond the limit.</strong> A project reads up to 500 issues. If the scope is bigger, the page says "first 500 of about N issues", and the totals are incomplete. See <a href="limits.html">Limits and behaviour</a>.</li>
+</ul>
+
+<h2>Freshness and caching</h2>
+<p>Scanning Jira is the slow part, so computed figures are kept for about 15 minutes and recomputed automatically after that. A change that affects the numbers (a rate, a role, a setting, the scope) makes the project recompute straight away. Lists such as the Projects table fill in row by row, so one slow project never blocks the page.</p>
+<div class="callout"><p>If a number looks stale right after you changed something in <em>Jira</em> (for example a worklog you just logged), give it up to 15 minutes. Changes made inside Cost Tracker show immediately.</p></div>

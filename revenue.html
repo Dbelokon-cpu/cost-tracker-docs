@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenue and profit · Cost Tracker documentation</title>
+<meta name="description" content="Track what a project earns, by billable hours or as a fixed price, and see profit and margin next to cost.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html" aria-current="page">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Guides</div>
+    <h1>Revenue and profit</h1>
+    <p class="subtitle">Track what a project earns, by billable hours or as a fixed price, and see profit and margin next to cost.</p>
+    <p>Revenue is available on <strong>monetary</strong> projects only; a time-based project has no currency to bill in. Turn it on per project under <strong>Settings → Rates and revenue → Revenue tracking</strong>.</p>
+
+    <h2 id="two-ways-to-earn-revenue">Two ways to earn revenue<a class="h-anchor" href="#two-ways-to-earn-revenue" aria-label="Link to this section">#</a></h2>
+    <div class="cards">
+      <div class="card">
+        <h3 id="hourly-billing">Hourly billing<a class="h-anchor" href="#hourly-billing" aria-label="Link to this section">#</a></h3>
+        <p>Revenue accrues from logged hours at each person's <em>billing rate</em>. The billing rate is chosen with the same order as the cost rate (own, cost account, role, project default), with its own rates and its own default.</p>
+      </div>
+      <div class="card">
+        <h3 id="fixed-price">Fixed price<a class="h-anchor" href="#fixed-price" aria-label="Link to this section">#</a></h3>
+        <p>The project's <strong>budget</strong> is the contract amount and counts as revenue, whatever hours are logged. Billing rates are hidden. Set the amount as the Budget.</p>
+      </div>
+    </div>
+
+    <h2 id="fixed-revenue-entries">Fixed revenue entries<a class="h-anchor" href="#fixed-revenue-entries" aria-label="Link to this section">#</a></h2>
+    <p>On the Revenue tab you can also add revenue by hand, such as a milestone payment or a licence sold. These <em>fixed revenue</em> entries add to the project's revenue and profit on any monetary project, even with hourly tracking off. A time-based project shows a one-line note instead.</p>
+
+    <h2 id="profit-and-margin">Profit and margin<a class="h-anchor" href="#profit-and-margin" aria-label="Link to this section">#</a></h2>
+    <p><strong>Profit</strong> is revenue minus actual cost (labor plus expenses). <strong>Margin</strong> is profit as a share of revenue. Both are shown next to the cost figures, not in a separate reconciliation step.</p>
+    <div class="example">
+      <strong>Example: if Website redesign were a fixed-price project</strong>
+      <p>Budget (and so revenue) 6,000. Actual cost is 1,370 (1,120 labor plus 250 expenses). Profit is 4,630 and margin is 77%.</p>
+    </div>
+    <div class="callout warn"><p><strong>Revenue shows 0?</strong> Revenue tracking may be off, no billing rate may apply yet (a banner says so), or a fixed-price project has no budget. See <a href="troubleshooting.html">Troubleshooting</a>.</p></div>
+    <div class="pagenav"><a class="prev" href="expenses.html"><small>Previous</small>Expenses</a><a class="next" href="budget.html"><small>Next</small>Budget and milestones</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#two-ways-to-earn-revenue">Two ways to earn revenue</a>
+    <a href="#fixed-revenue-entries">Fixed revenue entries</a>
+    <a href="#profit-and-margin">Profit and margin</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

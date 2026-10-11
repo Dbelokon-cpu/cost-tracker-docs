@@ -1,0 +1,63 @@
+<!--meta {"title": "Cost Tracker", "desc": "Turns the time your team already logs in Jira into project cost, budget and profit, with no separate time-tracking product to adopt."} -->
+<p>Most cost-tracking apps ask people to log time a second time, inside them. Cost Tracker reads Jira's own worklogs directly. It adds the money layer Jira does not have: what each person costs per hour, what a project has spent and earned, and whether it is on budget.</p>
+
+<div class="cta-row">
+  <a class="cta primary" href="quick-start.html">Quick start →</a>
+  <a class="cta" href="how-cost-works.html">How cost is calculated</a>
+  <a class="cta" href="troubleshooting.html">Troubleshooting</a>
+</div>
+
+<h2>Start with your role</h2>
+<div class="cards">
+  <div class="card">
+    <h3>Project owner or manager</h3>
+    <p>You set up a project and watch it against budget.</p>
+    <ul>
+      <li><a href="quick-start.html">Quick start</a></li>
+      <li><a href="projects.html">Cost projects and scope</a></li>
+      <li><a href="rates.html">Rates, roles and the team</a></li>
+      <li><a href="expenses.html">Expenses</a>, <a href="budget.html">budget</a>, <a href="revenue.html">revenue</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Portfolio manager</h3>
+    <p>You look across several projects.</p>
+    <ul>
+      <li><a href="portfolios.html">Portfolios</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      <li><a href="sharing.html">Sharing and ownership</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Finance or analyst</h3>
+    <p>You need to trust the numbers.</p>
+    <ul>
+      <li><a href="how-cost-works.html">How cost is calculated</a></li>
+      <li><a href="limits.html">Limits and behaviour</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Jira administrator</h3>
+    <p>You install the app and manage site-wide setup.</p>
+    <ul>
+      <li><a href="permissions.html">Permissions and access</a></li>
+      <li><a href="accounts.html">Cost accounts</a></li>
+      <li><a href="privacy.html">Privacy</a> and <a href="security.html">security</a></li>
+    </ul>
+  </div>
+</div>
+
+<h2>How the pieces fit</h2>
+<p>A <strong>cost project</strong> is the app's own entity. It is not a copy of a Jira project: it is defined by a <em>scope</em> (one or more Jira spaces, or any JQL filter), and everything else hangs off it. One cost project can span several Jira projects, and one Jira project can be covered by several cost projects.</p>
+<ol class="steps">
+  <li><strong>Scope</strong> decides which issues, and therefore which worklogs, count.</li>
+  <li><strong>Rates</strong> turn each worklog's hours into money. A rate can belong to a person, a role, a cost account or the project, and it can change from a given date.</li>
+  <li><strong>Expenses</strong> add costs that worklogs do not capture, such as licences and contractor invoices.</li>
+  <li><strong>Revenue</strong> (optional) adds what the project earns, so profit and margin appear next to cost.</li>
+  <li><strong>Budget and milestones</strong> (optional) give the cost something to be compared with.</li>
+  <li><strong>Portfolios and reports</strong> combine several projects, or slice one by period, person or account.</li>
+</ol>
+
+<h2>Where to open it</h2>
+<p>Open <strong>Cost Tracker</strong> from the <strong>Apps</strong> menu in the Jira sidebar. The app has one global page with three areas: <em>Workspace</em> (Projects, Portfolios, Reports) and <em>Setup</em> (Accounts, Attributes, Roles). It does not add anything to individual Jira projects.</p>

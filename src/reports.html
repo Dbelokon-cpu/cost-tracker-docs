@@ -1,0 +1,31 @@
+<!--meta {"title": "Reports", "desc": "Break a project or portfolio's cost down by period, person or account over a timeframe, save the report and export it to XLSX."} -->
+<p>A report covers one <strong>project or portfolio</strong> over a <strong>timeframe</strong>. Unlike the Overview, which shows everything logged, a report lets you choose the period and how to slice it.</p>
+
+<h2>Create a report</h2>
+<ol class="steps">
+  <li>Open <strong>Reports</strong> in the sidebar and choose <strong>New report</strong>.</li>
+  <li>Give it a <strong>Name</strong>, then pick the <strong>Project or portfolio</strong> and the <strong>Timeframe</strong>.</li>
+  <li>Choose a <strong>Report type</strong>. For <em>By period</em> also choose the <strong>Breakdown</strong>: by week or by month.</li>
+  <li>Choose <strong>Create</strong>. The report is saved and opens.</li>
+</ol>
+<div class="tablewrap"><table>
+  <tr><th>Report type</th><th>Rows are</th></tr>
+  <tr><td class="f">By period</td><td>Weeks or months in the timeframe.</td></tr>
+  <tr><td class="f">By person</td><td>One row per person, with a total.</td></tr>
+  <tr><td class="f">By account</td><td>One row per <a href="accounts.html">cost account</a> (including "No account"), so you can see CAPEX versus OPEX for the period.</td></tr>
+</table></div>
+<p>Totals are shown as tiles: hours, labor cost, expenses and total cost. A time-based project reports hours only.</p>
+
+<h2>The Reports list</h2>
+<p>Saved reports appear as cards with their name, type, project or portfolio and period, and a search box above. Click a report's name to <strong>open</strong> it (a read-only view of the result). Use <strong>Edit</strong> to change its settings and <strong>Update</strong> to save, or <strong>Delete</strong> (with confirmation).</p>
+
+<h2>Filters in the result view</h2>
+<p>When a report is open you can narrow it by <strong>Person</strong> and by <strong>Account</strong>. These filters are for looking, not part of the saved report. Expenses cannot be attributed to a person, so a person filter shows labor only; an account filter keeps expenses booked to that account.</p>
+
+<h2>Export</h2>
+<p>Use <strong>Export to XLSX</strong> to download the current result as a spreadsheet.</p>
+
+<h2>Portfolio reports</h2>
+<p>A portfolio report is each member project's report for the period, merged. Hours add up. Money adds up only across monetary members that share one currency; with mixed currencies, or only time-based members, the cost columns are left out and the page says so. Members that cannot be loaded (for example, a deleted project) are listed and left out. If a member hit the 500-issue limit, the warning names it.</p>
+
+<div class="callout"><p>A report always reads Jira live and is <strong>not cached</strong> like the Overview, so a large project's report can take a moment to open.</p></div>

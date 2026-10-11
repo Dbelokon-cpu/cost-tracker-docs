@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troubleshooting · Cost Tracker documentation</title>
+<meta name="description" content="Symptom, likely cause and what to do, for the problems people meet most often.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html" aria-current="page">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Help</div>
+    <h1>Troubleshooting</h1>
+    <p class="subtitle">Symptom, likely cause and what to do, for the problems people meet most often.</p>
+    <p>Find the symptom, check the cause, follow the fix. If nothing here helps, see <a href="faq.html#support">support</a>.</p>
+
+    <h2 id="numbers">Numbers<a class="h-anchor" href="#numbers" aria-label="Link to this section">#</a></h2>
+
+    <h3 id="cost-shows-0">Cost shows 0<a class="h-anchor" href="#cost-shows-0" aria-label="Link to this section">#</a></h3>
+    <div class="tablewrap"><table>
+      <tr><th>Check</th><th>What to do</th></tr>
+      <tr><td>Is there an "Hourly rates are not set" banner?</td><td>A new monetary project's default hourly rate is 0. Set a <em>Default hourly rate</em> in Settings → Rates and revenue, or rates per person or role on the Team tab.</td></tr>
+      <tr><td>Do the project's issues have logged time?</td><td>Cost comes only from worklogs on issues in the scope. Check the scope in Settings and that the issues really have time logged.</td></tr>
+      <tr><td>Is the project time-based?</td><td>Then there is no money, only hours. Switch to monetary in Settings if you need cost (see <a href="projects.html#changing-the-type-or-currency">changing the type</a>).</td></tr>
+      <tr><td>Is a rate set to 0 on purpose?</td><td>0 is a real rate (unpaid work) and does not trigger the banner. Clear the field to fall back to the next level.</td></tr>
+    </table></div>
+
+    <h3 id="totals-look-incomplete-or-first-500-of-about-n-issues">Totals look incomplete or "first 500 of about N issues"<a class="h-anchor" href="#totals-look-incomplete-or-first-500-of-about-n-issues" aria-label="Link to this section">#</a></h3>
+    <p><strong>Cause:</strong> a project reads at most 500 issues. <strong>Fix:</strong> split the project by Jira space or by period. See <a href="limits.html#if-a-project-is-over-500-issues">Limits and behaviour</a>.</p>
+
+    <h3 id="i-changed-a-rate-and-old-numbers-moved">I changed a rate and old numbers moved<a class="h-anchor" href="#i-changed-a-rate-and-old-numbers-moved" aria-label="Link to this section">#</a></h3>
+    <p><strong>Cause:</strong> the change had no <em>Effective from</em> date, so it applied to all hours. <strong>Fix:</strong> to keep history, set the rate again with an <em>Effective from</em> date (a rate can have several periods); set the earlier rate on its own start date. See <a href="rates.html#rates-that-change-over-time">Rates that change over time</a>.</p>
+
+    <h3 id="overview-and-a-report-show-different-numbers">Overview and a report show different numbers<a class="h-anchor" href="#overview-and-a-report-show-different-numbers" aria-label="Link to this section">#</a></h3>
+    <ul>
+      <li>The Overview totals everything logged; a report covers the <strong>timeframe</strong> you chose.</li>
+      <li>A report filtered by <strong>person</strong> shows labor only, because expenses cannot be attributed to a person.</li>
+      <li>The Overview is kept for about 15 minutes; a report reads Jira live. A worklog logged in the last minutes may appear in the report first.</li>
+    </ul>
+
+    <h3 id="a-figure-did-not-update-after-i-logged-time-in-jira">A figure did not update after I logged time in Jira<a class="h-anchor" href="#a-figure-did-not-update-after-i-logged-time-in-jira" aria-label="Link to this section">#</a></h3>
+    <p>Calculated figures are kept for about 15 minutes. Wait, or change something in the project (any rate, role or setting) to make it recompute straight away.</p>
+
+    <h3 id="revenue-shows-0">Revenue shows 0<a class="h-anchor" href="#revenue-shows-0" aria-label="Link to this section">#</a></h3>
+    <ul>
+      <li><strong>Revenue tracking</strong> may be off (Settings → Rates and revenue).</li>
+      <li>With hourly billing, a banner says when no <em>billing</em> rate applies yet. Set a Default billing rate or billing rates.</li>
+      <li>With fixed price, revenue is the project's <strong>budget</strong>; set one.</li>
+      <li>Time-based projects have no revenue.</li>
+    </ul>
+
+    <h3 id="portfolio-totals-are-blank-or-missing">Portfolio totals are blank or missing<a class="h-anchor" href="#portfolio-totals-are-blank-or-missing" aria-label="Link to this section">#</a></h3>
+    <p>Money adds up only across monetary projects with the <strong>same currency</strong>. With mixed currencies, or only time-based members, the money totals are left out and the page says so. Hours still add up.</p>
+
+    <h2 id="access">Access<a class="h-anchor" href="#access" aria-label="Link to this section">#</a></h2>
+
+    <h3 id="i-cannot-open-or-edit-a-project">I cannot open or edit a project<a class="h-anchor" href="#i-cannot-open-or-edit-a-project" aria-label="Link to this section">#</a></h3>
+    <p>Access is per project: owner, editor, viewer or none. Ask the project's owner to change its sharing (Settings → Sharing), or a Jira site administrator if the owner has left. A viewer can read but not change anything.</p>
+
+    <h3 id="i-cannot-find-a-person-to-add">I cannot find a person to add<a class="h-anchor" href="#i-cannot-find-a-person-to-add" aria-label="Link to this section">#</a></h3>
+    <p>The search lists <strong>existing users of your Jira site</strong> only, and needs at least two letters. The app cannot invite people or send email: invite them to the Jira site first (Jira settings → User management → Invite user), then search again. App accounts are not offered.</p>
+
+    <h3 id="i-cannot-create-or-edit-accounts-attributes-or-library-roles">I cannot create or edit accounts, attributes or library roles<a class="h-anchor" href="#i-cannot-create-or-edit-accounts-attributes-or-library-roles" aria-label="Link to this section">#</a></h3>
+    <p>These are site-wide and limited to <strong>Jira site administrators</strong>. Everyone can see them. Ask an administrator.</p>
+
+    <h3 id="a-project-i-expected-is-not-in-my-portfolio-or-list">A project I expected is not in my portfolio or list<a class="h-anchor" href="#a-project-i-expected-is-not-in-my-portfolio-or-list" aria-label="Link to this section">#</a></h3>
+    <ul>
+      <li>It may be restricted and not shared with you.</li>
+      <li>If it was deleted, a portfolio notes that the member was excluded.</li>
+      <li>Only projects you can see can be added to a portfolio.</li>
+    </ul>
+
+    <h2 id="setup">Setup<a class="h-anchor" href="#setup" aria-label="Link to this section">#</a></h2>
+
+    <h3 id="where-is-the-app">Where is the app?<a class="h-anchor" href="#where-is-the-app" aria-label="Link to this section">#</a></h3>
+    <p>Open <strong>Cost Tracker</strong> from the <strong>Apps</strong> menu in the Jira sidebar. It is one global page; it does not appear inside individual Jira projects.</p>
+
+    <h3 id="the-scope-is-rejected-when-i-save">The scope is rejected when I save<a class="h-anchor" href="#the-scope-is-rejected-when-i-save" aria-label="Link to this section">#</a></h3>
+    <p>The JQL is validated against your site. Fix the query (a misspelt field, an unknown project key) and save again. A project you cannot see in Jira is not found either.</p>
+
+    <h3 id="a-cost-account-stopped-applying">A cost account stopped applying<a class="h-anchor" href="#a-cost-account-stopped-applying" aria-label="Link to this section">#</a></h3>
+    <p>If an account's JQL stops being valid (a field was deleted, for example), the account is skipped instead of breaking reports. Edit the account's JQL to fix it.</p>
+
+    <h2 id="still-stuck">Still stuck?<a class="h-anchor" href="#still-stuck" aria-label="Link to this section">#</a></h2>
+    <p>Write to <a href="mailto:info@vudia.site">info@vudia.site</a> with the project name, what you expected, what you saw, and (if you can) a screenshot.</p>
+    <div class="pagenav"><a class="prev" href="glossary.html"><small>Previous</small>Glossary</a><a class="next" href="faq.html"><small>Next</small>FAQ and support</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#numbers">Numbers</a>
+    <a href="#access">Access</a>
+    <a href="#setup">Setup</a>
+    <a href="#still-stuck">Still stuck?</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

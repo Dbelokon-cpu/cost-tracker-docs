@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limits and behaviour · Cost Tracker documentation</title>
+<meta name="description" content="Every limit and fixed behaviour in one place: sizes, caching, formats and what happens at the edges.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html" aria-current="page">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Reference</div>
+    <h1>Limits and behaviour</h1>
+    <p class="subtitle">Every limit and fixed behaviour in one place: sizes, caching, formats and what happens at the edges.</p>
+    <h2 id="limits">Limits<a class="h-anchor" href="#limits" aria-label="Link to this section">#</a></h2>
+    <div class="tablewrap"><table>
+      <tr><th>What</th><th>Limit</th><th>What happens at the limit</th></tr>
+      <tr><td>Issues read per cost project</td><td class="num">500</td><td>The page says "first 500 of about N issues" and the totals are incomplete. Split the project (below).</td></tr>
+      <tr><td>Cost accounts on the site</td><td class="num">20</td><td>Creating a 21st is refused. Each account costs an extra Jira search per project calculation.</td></tr>
+      <tr><td>Role name length</td><td class="num">60</td><td>Refused. Names must also be unique within a project, ignoring case.</td></tr>
+      <tr><td>Milestones per project</td><td class="num">24</td><td>Refused.</td></tr>
+      <tr><td>People named in a project's sharing</td><td class="num">50</td><td>Refused.</td></tr>
+      <tr><td>Calculated figures are kept</td><td class="num">~15 min</td><td>Recomputed after that, or immediately after a change that affects them.</td></tr>
+    </table></div>
+
+    <h3 id="if-a-project-is-over-500-issues">If a project is over 500 issues<a class="h-anchor" href="#if-a-project-is-over-500-issues" aria-label="Link to this section">#</a></h3>
+    <p>The 500-issue limit is deliberate, sized for small and medium teams. A bigger scope still works, but only the first 500 issues count and the page says so (Overview, Scope and Reports all show the warning, with the real size when Jira can tell). To get complete figures:</p>
+    <ul>
+      <li><strong>Split by Jira space.</strong> If the scope covers several spaces, make one cost project per space and group them in a <a href="portfolios.html">portfolio</a>.</li>
+      <li><strong>Narrow by period.</strong> Add a date condition to the JQL, for example <code>AND created &gt;= "2026-01-01"</code>, and keep a separate project for older work.</li>
+    </ul>
+
+    <h2 id="behaviour">Behaviour<a class="h-anchor" href="#behaviour" aria-label="Link to this section">#</a></h2>
+    <div class="tablewrap"><table>
+      <tr><th>Topic</th><th>How it behaves</th></tr>
+      <tr><td>Currency</td><td>A property of each project. Amounts are never converted. A portfolio or report adds money only across projects with the same currency.</td></tr>
+      <tr><td>Rates</td><td>Non-negative numbers. Empty means "use the next level", <code>0</code> is a real rate. A rate can start on a date; with no date it applies to all hours.</td></tr>
+      <tr><td>Worklog date</td><td>The day the worklog was logged for, as Jira stores it. Rates are matched to this date.</td></tr>
+      <tr><td>Type or currency change</td><td>Nothing is converted; the app asks you to confirm first.</td></tr>
+      <tr><td>Date format</td><td>Shown in Jira's own style, for example <em>Oct 22, 2026</em>. Typed dates also accept <code>YYYY-MM-DD</code>.</td></tr>
+      <tr><td>Reports</td><td>Read Jira live (not cached) for the chosen timeframe.</td></tr>
+      <tr><td>Exports</td><td>XLSX files, generated from what is on screen. CSV export was removed.</td></tr>
+      <tr><td>Jira data</td><td>Only read, never changed. See <a href="privacy.html">Privacy</a>.</td></tr>
+    </table></div>
+    <div class="pagenav"><a class="prev" href="sharing.html"><small>Previous</small>Sharing and ownership</a><a class="next" href="permissions.html"><small>Next</small>Permissions and access</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#limits">Limits</a>
+    <a href="#behaviour">Behaviour</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

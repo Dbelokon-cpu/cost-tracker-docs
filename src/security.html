@@ -1,0 +1,82 @@
+<!--meta {"title": "Security policy", "desc": "How this app is built, what it can access, and how we handle a security report — for the technical reviewer, not just the end user."} -->
+<section id="architecture">
+      <h2>Architecture and hosting</h2>
+      <p>Cost Tracker is built entirely on Atlassian Forge, in UI Kit (not Custom UI) — its interface is rendered by the platform itself, not by code we serve. It has no servers, databases, or infrastructure of its own: it stores no data outside Atlassian, and its manifest declares no permission to make an outbound network call to anything other than Atlassian's own APIs.</p>
+      <p>TLS, HSTS, DDoS protection, encryption at rest, physical security, and patching of the underlying platform are Atlassian's responsibility, not ours — and are covered by Atlassian's own SOC 2 Type II and ISO 27001 certifications.</p>
+    </section>
+
+    <section id="data">
+      <h2>Data we handle</h2>
+      <p>The app reads issue and worklog data, live, using the viewer's own Jira permissions, scoped to whichever cost project they're looking at — and shows it straight back to them, aggregated into cost, budget and revenue figures. None of it is copied anywhere else.</p>
+      <p>What's written to Forge's key-value storage is the configuration your users enter directly — project names and scopes, hourly rates, expenses, budgets, report settings — plus a short-lived cache of computed totals. Full detail, including exactly what is and isn't kept, is in the <a href="privacy.html">privacy policy</a>.</p>
+      <p>The app holds no permission to create, edit, transition, or comment on an issue — it cannot write to Jira at all.</p>
+    </section>
+
+    <section id="auth">
+      <h2>Authentication and access control</h2>
+      <p>There is no independent login system. Every request runs as the signed-in Jira user, authenticated by Forge through their existing Jira session — we never collect, transmit, or store Atlassian usernames, passwords, or API tokens.</p>
+      <p>Within the app, every project-scoped action is additionally checked against that project's own sharing setting (owner, editor, viewer, or restricted) before it runs, server-side, using the caller's account ID as supplied by Forge rather than anything the client claims. Access is bounded by the scopes declared in the app's manifest:</p>
+      <div class="scope-list">
+        <div class="scope-item"><code>read:jira-work</code><span>search issues, read worklogs and dates, list Jira projects, check site-admin status</span></div>
+        <div class="scope-item"><code>read:jira-user</code><span>show people's names, search users to add as team members or share a project with</span></div>
+        <div class="scope-item"><code>storage:app</code><span>the app's own Forge key-value store</span></div>
+      </div>
+      <p>No write scope is declared anywhere in the manifest.</p>
+    </section>
+
+    <section id="practices">
+      <h2>Internal security practices</h2>
+      <p>Cost Tracker is developed by a small team at Vudia.</p>
+      <ul>
+        <li>Multi-factor authentication is enforced on the Atlassian Developer Console account and on the GitHub account (<code class="field">Dbelokon-cpu</code>) that hosts both this documentation site and the app's source.</li>
+        <li>Source code is kept in a private GitHub repository — not publicly browsable — with the same MFA-protected account controlling access.</li>
+        <li>Dependabot is enabled on that repository: alerts and automated security fixes for known vulnerabilities, plus a weekly check for routine dependency updates.</li>
+        <li>Credentials are kept in a password manager; passwords are not shared or reused across services.</li>
+        <li>Every change runs through an automated test suite and a linter in CI before it ships.</li>
+      </ul>
+    </section>
+
+    <section id="vulnerabilities">
+      <h2>Vulnerability management</h2>
+      <p>Development follows OWASP Top 10 guidance — every project-scoped resolver is required to pass through the app's own access check, enforced by a test that fails the build if a new one is added without it. Dependabot watches the dependency tree continuously and opens a pull request when a known vulnerability is published.</p>
+      <p>We are evaluating enrolment in the Atlassian Marketplace-managed security bug bounty program (via Bugcrowd). In the meantime, reports are handled directly — see contacts below — and we follow the Marketplace's own SLA: 10 days for Critical severity, 28 days for High severity.</p>
+    </section>
+
+    <section id="incident">
+      <h2>Incident response</h2>
+      <ol class="steps">
+        <li>Investigate the report and confirm scope — what's affected, and how.</li>
+        <li>Notify Atlassian within 24 hours via a priority (P1) support ticket if the platform itself is implicated.</li>
+        <li>Contain the issue and ship a remediation.</li>
+        <li>Notify affected customers directly if any of their data was involved.</li>
+        <li>Run a post-incident review and record what changes as a result.</li>
+      </ol>
+      <div class="settings-wrap">
+        <table class="contact">
+          <tr><th>Purpose</th><th>Contact</th><th>Response</th></tr>
+          <tr><td class="field">Security report</td><td><a href="mailto:security@vudia.site">security@vudia.site</a></td><td>Prioritised</td></tr>
+          <tr><td class="field">General support</td><td><a href="mailto:info@vudia.site">info@vudia.site</a></td><td>Two business days</td></tr>
+          <tr><td class="field">Privacy questions</td><td colspan="2">See the <a href="privacy.html">privacy policy</a></td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="continuity">
+      <h2>Business continuity</h2>
+      <p>Because the app has no infrastructure of its own, its availability depends entirely on Atlassian Forge's own SLA and uptime — there is no independent server, database, or backup process for it to fail separately from Atlassian's platform.</p>
+    </section>
+
+    <section id="third-party">
+      <h2>Third-party risk</h2>
+      <p>Atlassian is the only third party involved: it provides storage, hosting, and operations, and is certified under SOC 2 Type II and ISO 27001. The app uses no analytics, no subprocessors, and no external APIs — its manifest declares no permission to reach anything outside Atlassian.</p>
+    </section>
+
+    <section id="compliance">
+      <h2>Compliance</h2>
+      <p>We do not hold independent security certifications (SOC 2, ISO 27001, or similar) at this time. The app inherits the controls of Atlassian's own certified platform, and is built to comply with the Atlassian Marketplace's security requirements for Cloud apps.</p>
+    </section>
+
+    <section id="review">
+      <h2>Policy review</h2>
+      <p>This policy is reviewed at least once a year, and sooner if the app's architecture, data handling, or team changes materially.</p>
+    </section>

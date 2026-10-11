@@ -1,0 +1,27 @@
+<!--meta {"title": "Cost accounts", "desc": "Named buckets of work, such as CAPEX and OPEX or a client, defined by JQL, that can carry their own rates and receive expenses."} -->
+<p>A <strong>cost account</strong> groups work for cost purposes: capitalised versus operating spend, a client, a cost centre. Unlike a Jira custom field, an account is defined by a <strong>JQL</strong> filter, so no field has to be added to your issues.</p>
+
+<h2>What an account holds</h2>
+<div class="tablewrap"><table>
+  <tr><th>Field</th><th>Notes</th></tr>
+  <tr><td class="f">Name and Key</td><td>Both must be unique across the site.</td></tr>
+  <tr><td class="f">Category</td><td>Billable, Capitalized (CAPEX), Operating (OPEX) or Other.</td></tr>
+  <tr><td class="f">JQL</td><td>Which issues belong to the account. It is checked when you save it.</td></tr>
+  <tr><td class="f">Cost rate, Billing rate</td><td>Optional hourly rates for work on the account's issues. They can start on a date; see <a href="rates.html#rates-that-change-over-time">Rates that change over time</a>.</td></tr>
+  <tr><td class="f">Lead, Customer, Contact</td><td>Optional descriptive fields.</td></tr>
+  <tr><td class="f">Status</td><td>Open or Closed. Informational: it filters the list but does not switch the account off.</td></tr>
+</table></div>
+
+<h2>How an account is applied to a project</h2>
+<ul>
+  <li>For each project, the account's JQL is combined (AND) with the project's own scope, and the matching issues are found in the same scan that computes the report.</li>
+  <li>An account's rate applies to work on its issues. It beats a role's rate and the project default, but not a person's own rate.</li>
+  <li>An issue that matches more than one account goes to the account created first, so every worklog has exactly one rate.</li>
+  <li>If an account's JQL later stops being valid (a deleted field, for example), the account is skipped rather than breaking the report.</li>
+  <li>Account rates are plain numbers applied as-is in each project's own currency. There is no conversion.</li>
+  <li>Expenses can be booked to an account, which is how the Overview's <em>Accounts</em> card and the "by account" report split cost.</li>
+</ul>
+
+<h2>Who can manage accounts</h2>
+<p>Accounts are site-wide setup, like attributes and the role library. <strong>Only Jira site administrators</strong> can create, edit or delete them; everyone can see them. Accounts are managed under <strong>Setup → Accounts</strong>, with a switch between <em>Accounts</em> and <em>Customers</em> views.</p>
+<div class="callout"><p>You can create up to <strong>20</strong> accounts, because each one costs an extra Jira search every time a project is calculated.</p></div>

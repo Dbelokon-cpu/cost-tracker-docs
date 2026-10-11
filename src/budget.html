@@ -1,0 +1,32 @@
+<!--meta {"title": "Budget and milestones", "desc": "Set a budget, plan spend over time with milestones, and read the Overview's progress against schedule, scope and cost."} -->
+<h2>Budget</h2>
+<p>A budget is optional. Set it in <strong>Settings → General → Schedule and budget</strong>. On a monetary project the budget is an amount in the project's currency; on a time-based project it is a number of hours. With no budget, remaining budget and progress show a dash instead of a misleading figure.</p>
+<p>On a fixed-price project the budget is also the project's revenue. See <a href="revenue.html">Revenue and profit</a>.</p>
+
+<h2>Milestones: a plan of spend over time</h2>
+<p>Under the budget, <strong>Set budget milestones</strong> lets you plan how much should have been spent by given dates. Each milestone is a date and a <em>cumulative</em> amount, so every amount is the running total:</p>
+<ul>
+  <li>amounts may not fall as dates advance,</li>
+  <li>no amount may exceed the budget,</li>
+  <li>two milestones cannot share a date, and there can be at most 24.</li>
+</ul>
+<p>On a time-based project the milestones are hours.</p>
+<div class="example">
+  <strong>Example: Website redesign</strong>
+  <p>Budget 6,000. Milestones: 1 Jun 1,000, 1 Jul 3,000, 1 Aug 5,000. If actual cost on 1 Jul is 3,400, the Overview reads "Plan to date: 3,000, spent 3,400 — 400 ahead of plan", in red.</p>
+</div>
+
+<h2>Reading the Overview</h2>
+<p>The Overview shows <strong>schedule</strong>, <strong>scope</strong> and <strong>cost</strong> progress side by side, so an overrun appears against the same timeline that causes it, not just as one red number.</p>
+<div class="tablewrap"><table>
+  <tr><th>Progress bar</th><th>Measures</th></tr>
+  <tr><td class="f">Schedule</td><td>How far through the project's timeframe today is.</td></tr>
+  <tr><td class="f">Scope</td><td>Issues in a done status category out of all issues scanned, with the number remaining.</td></tr>
+  <tr><td class="f">Cost (or Hours)</td><td>Actual cost against the budget, with the amount remaining or the amount over budget.</td></tr>
+</table></div>
+<p>Two lines can appear under the bars:</p>
+<ul>
+  <li><strong>Plan to date</strong> (when milestones exist): what the plan says should have been spent by now, what was spent, and the difference, shown as "ahead of plan" (spent more than planned), "under plan" or "exactly on plan".</li>
+  <li><strong>Forecast by the end date</strong> (when recurring expenses exist): actual cost plus the recurring expenses still to come, and by how much that would exceed the budget.</li>
+</ul>
+<p>The monthly cost chart shows labor and expenses per month, and an <em>Accounts</em> card splits cost by account category such as CAPEX and OPEX. If the scope was capped at the 500-issue limit, the Overview says so under the figures.</p>

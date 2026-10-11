@@ -1,0 +1,51 @@
+<!--meta {"title": "Quick start", "desc": "Create a cost project, set rates and see real numbers in about ten minutes. The same example is used throughout these docs."} -->
+<h2>The example project</h2>
+<p>These docs use one small project so the numbers can be followed from page to page. You do not need the same data; any Jira space with a few worklogs will do.</p>
+<div class="example">
+  <strong>Example: Website redesign</strong>
+  <p>A monetary project in USD that reads the Jira space <code>WEB</code>. Three people logged time in July 2026:</p>
+  <div class="tablewrap"><table>
+    <tr><th>Person</th><th>Set up as</th><th>Hours logged</th></tr>
+    <tr><td>Anna</td><td>Own rate 50/h</td><td class="num">10 h</td></tr>
+    <tr><td>Ben</td><td>Role "Developer" at 40/h</td><td class="num">5 h on a CAPEX issue, 5 h on other issues</td></tr>
+    <tr><td>Carol</td><td>No rate of her own, no role</td><td class="num">4 h</td></tr>
+  </table></div>
+  <p>The project default rate is 30/h, and a cost account "Capitalised work" (JQL <code>labels = capex</code>) has a rate of 60/h.</p>
+</div>
+
+<h2>Create the project</h2>
+<ol class="steps">
+  <li>Open <strong>Cost Tracker</strong> from the Jira <strong>Apps</strong> menu and choose <strong>Create project</strong>.</li>
+  <li>Give it a name and a <strong>scope</strong>: pick the Jira space <code>WEB</code>, or write a JQL filter. The scope is checked against your site before it is saved.</li>
+  <li>Choose the <strong>project type</strong>. <em>Monetary-based</em> computes cost and budget in a currency from hourly rates. <em>Time-based</em> uses hours only and no rates. You can change this later, but nothing is converted (see <a href="projects.html#changing-the-type-or-currency">changing the type or currency</a>).</li>
+  <li>Set the currency (USD) and, under <strong>Settings → Rates and revenue</strong>, a <strong>Default hourly rate</strong> of 30.</li>
+</ol>
+<div class="callout warn"><p><strong>Do not skip the default rate.</strong> A new monetary project starts with a default rate of 0, so time is counted but priced at 0 until some rate applies. The app shows an "Hourly rates are not set" banner on Overview, Team and Revenue while this is the case.</p></div>
+
+<h2>Set rates</h2>
+<ol class="steps">
+  <li>Open the <strong>Team</strong> tab. Everyone who logged time in the scope is already listed.</li>
+  <li>In the <strong>Roles</strong> card, add the role <em>Developer</em> with a cost rate of 40, then give Ben that role in the table.</li>
+  <li>For Anna, open the <strong>···</strong> menu on her row, choose <em>Edit cost rate and history</em> and enter 50. Leave <em>Effective from</em> empty for now.</li>
+  <li>Create the cost account (a Jira administrator does this under <strong>Accounts</strong>): name "Capitalised work", JQL <code>labels = capex</code>, cost rate 60.</li>
+</ol>
+
+<h2>Check the result</h2>
+<p>Each worklog takes the first rate that applies, in this order: the person's own rate, the cost account's, the role's, then the project default. For the example:</p>
+<div class="tablewrap"><table>
+  <tr><th>Worklog</th><th>Rate used</th><th>Why</th><th class="num">Cost</th></tr>
+  <tr><td>Anna, 10 h</td><td class="f">50</td><td>Her own rate wins over everything</td><td class="num">500</td></tr>
+  <tr><td>Ben, 5 h on a CAPEX issue</td><td class="f">60</td><td>He has no own rate, and the account's rate beats his role</td><td class="num">300</td></tr>
+  <tr><td>Ben, 5 h on other issues</td><td class="f">40</td><td>No own or account rate, so his role applies</td><td class="num">200</td></tr>
+  <tr><td>Carol, 4 h</td><td class="f">30</td><td>Nothing else matches, so the project default applies</td><td class="num">120</td></tr>
+  <tr><td colspan="3"><strong>Labor cost</strong></td><td class="num"><strong>1,120</strong></td></tr>
+</table></div>
+<p>Open <strong>Overview</strong> and <strong>Team</strong> to see the same figures. If cost shows 0, see <a href="troubleshooting.html#cost-shows-0">Troubleshooting</a>.</p>
+
+<h2>What to add next</h2>
+<ul>
+  <li><a href="expenses.html">Expenses</a> for licences and other costs that are not logged time.</li>
+  <li>A <a href="budget.html">budget</a> to compare cost against.</li>
+  <li><a href="revenue.html">Revenue</a> to see profit and margin.</li>
+  <li>A <a href="rates.html#rates-that-change-over-time">dated rate</a> when someone's rate changes, so earlier months keep their old price.</li>
+</ul>

@@ -1,0 +1,26 @@
+<!--meta {"title": "Glossary", "desc": "The terms used across these docs and in the app, in one place."} -->
+<dl class="glossary">
+  <dt id="actual-cost">Actual cost</dt><dd>Labor cost plus expenses recorded so far. On a time-based project, actual hours.</dd>
+  <dt id="billing-rate">Billing rate</dt><dd>What a client is charged per hour for a person's work. Separate from the cost rate, and used only when hourly revenue is on.</dd>
+  <dt id="budget">Budget</dt><dd>An optional target for a project: an amount in its currency, or hours on a time-based project. On a fixed-price project it is also the revenue.</dd>
+  <dt id="cost-account">Cost account</dt><dd>A named bucket of work (for example CAPEX, OPEX or a client) defined by JQL. It can carry its own rates and receive expenses. Managed site-wide by Jira administrators.</dd>
+  <dt id="cost-project">Cost project</dt><dd>The app's own entity: a scope plus everything that hangs off it (rates, team, expenses, revenue, budget). Not a copy of a Jira project.</dd>
+  <dt id="cost-rate">Cost rate</dt><dd>What a person costs the business per hour.</dd>
+  <dt id="default-rate">Default hourly rate</dt><dd>The project's fallback rate, used when no own, account or role rate applies. A new project starts at 0.</dd>
+  <dt id="effective-from">Effective from</dt><dd>The date a rate starts to apply. Hours logged on or after it use the new rate; earlier hours keep their old one.</dd>
+  <dt id="expense">Expense</dt><dd>A cost that is not logged time: a licence, travel, a contractor invoice. One-off or recurring.</dd>
+  <dt id="fixed-price">Fixed price</dt><dd>A revenue mode where the project's budget is its revenue regardless of hours logged.</dd>
+  <dt id="jql">JQL</dt><dd>Jira Query Language. Used to define a cost project's scope and a cost account's issues.</dd>
+  <dt id="labor-cost">Labor cost</dt><dd>The sum of every worklog's hours times its rate.</dd>
+  <dt id="margin">Margin</dt><dd>Profit as a share of revenue.</dd>
+  <dt id="milestone">Milestone</dt><dd>A date and a cumulative planned spend. Together they form the plan the Overview compares actual cost with.</dd>
+  <dt id="monetary">Monetary-based</dt><dd>A project type whose cost and budget are in a currency, computed from hourly rates.</dd>
+  <dt id="period">Period (of a rate)</dt><dd>A stretch of time during which a rate has one value. A rate with several periods has a history.</dd>
+  <dt id="portfolio">Portfolio</dt><dd>A group of cost projects with a combined view of cost, budget and timeline.</dd>
+  <dt id="profit">Profit</dt><dd>Revenue minus actual cost.</dd>
+  <dt id="role">Role</dt><dd>A named group of people in one project with a shared cost and billing rate.</dd>
+  <dt id="scope">Scope</dt><dd>What a cost project reads: one or more Jira spaces, or a JQL filter. It resolves to one JQL string.</dd>
+  <dt id="space">Space (Jira space)</dt><dd>Jira's name for a project container. "Jira space" and "Jira project" mean the same thing in these docs, to tell them apart from a <em>cost</em> project.</dd>
+  <dt id="time-based">Time-based</dt><dd>A project type whose cost and budget are in hours. It uses no rates and has no revenue.</dd>
+  <dt id="worklog">Worklog</dt><dd>A record of time logged on a Jira issue. Cost Tracker reads these; nobody logs time in the app.</dd>
+</dl>

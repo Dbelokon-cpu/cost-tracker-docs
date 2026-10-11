@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget and milestones · Cost Tracker documentation</title>
+<meta name="description" content="Set a budget, plan spend over time with milestones, and read the Overview&#x27;s progress against schedule, scope and cost.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html" aria-current="page">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Guides</div>
+    <h1>Budget and milestones</h1>
+    <p class="subtitle">Set a budget, plan spend over time with milestones, and read the Overview&#x27;s progress against schedule, scope and cost.</p>
+    <h2 id="budget">Budget<a class="h-anchor" href="#budget" aria-label="Link to this section">#</a></h2>
+    <p>A budget is optional. Set it in <strong>Settings → General → Schedule and budget</strong>. On a monetary project the budget is an amount in the project's currency; on a time-based project it is a number of hours. With no budget, remaining budget and progress show a dash instead of a misleading figure.</p>
+    <p>On a fixed-price project the budget is also the project's revenue. See <a href="revenue.html">Revenue and profit</a>.</p>
+
+    <h2 id="milestones-a-plan-of-spend-over-time">Milestones: a plan of spend over time<a class="h-anchor" href="#milestones-a-plan-of-spend-over-time" aria-label="Link to this section">#</a></h2>
+    <p>Under the budget, <strong>Set budget milestones</strong> lets you plan how much should have been spent by given dates. Each milestone is a date and a <em>cumulative</em> amount, so every amount is the running total:</p>
+    <ul>
+      <li>amounts may not fall as dates advance,</li>
+      <li>no amount may exceed the budget,</li>
+      <li>two milestones cannot share a date, and there can be at most 24.</li>
+    </ul>
+    <p>On a time-based project the milestones are hours.</p>
+    <div class="example">
+      <strong>Example: Website redesign</strong>
+      <p>Budget 6,000. Milestones: 1 Jun 1,000, 1 Jul 3,000, 1 Aug 5,000. If actual cost on 1 Jul is 3,400, the Overview reads "Plan to date: 3,000, spent 3,400 — 400 ahead of plan", in red.</p>
+    </div>
+
+    <h2 id="reading-the-overview">Reading the Overview<a class="h-anchor" href="#reading-the-overview" aria-label="Link to this section">#</a></h2>
+    <p>The Overview shows <strong>schedule</strong>, <strong>scope</strong> and <strong>cost</strong> progress side by side, so an overrun appears against the same timeline that causes it, not just as one red number.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Progress bar</th><th>Measures</th></tr>
+      <tr><td class="f">Schedule</td><td>How far through the project's timeframe today is.</td></tr>
+      <tr><td class="f">Scope</td><td>Issues in a done status category out of all issues scanned, with the number remaining.</td></tr>
+      <tr><td class="f">Cost (or Hours)</td><td>Actual cost against the budget, with the amount remaining or the amount over budget.</td></tr>
+    </table></div>
+    <p>Two lines can appear under the bars:</p>
+    <ul>
+      <li><strong>Plan to date</strong> (when milestones exist): what the plan says should have been spent by now, what was spent, and the difference, shown as "ahead of plan" (spent more than planned), "under plan" or "exactly on plan".</li>
+      <li><strong>Forecast by the end date</strong> (when recurring expenses exist): actual cost plus the recurring expenses still to come, and by how much that would exceed the budget.</li>
+    </ul>
+    <p>The monthly cost chart shows labor and expenses per month, and an <em>Accounts</em> card splits cost by account category such as CAPEX and OPEX. If the scope was capped at the 500-issue limit, the Overview says so under the figures.</p>
+    <div class="pagenav"><a class="prev" href="revenue.html"><small>Previous</small>Revenue and profit</a><a class="next" href="accounts.html"><small>Next</small>Cost accounts</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#budget">Budget</a>
+    <a href="#milestones-a-plan-of-spend-over-time">Milestones: a plan of spend over time</a>
+    <a href="#reading-the-overview">Reading the Overview</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reports · Cost Tracker documentation</title>
+<meta name="description" content="Break a project or portfolio&#x27;s cost down by period, person or account over a timeframe, save the report and export it to XLSX.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html" aria-current="page">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Guides</div>
+    <h1>Reports</h1>
+    <p class="subtitle">Break a project or portfolio&#x27;s cost down by period, person or account over a timeframe, save the report and export it to XLSX.</p>
+    <p>A report covers one <strong>project or portfolio</strong> over a <strong>timeframe</strong>. Unlike the Overview, which shows everything logged, a report lets you choose the period and how to slice it.</p>
+
+    <h2 id="create-a-report">Create a report<a class="h-anchor" href="#create-a-report" aria-label="Link to this section">#</a></h2>
+    <ol class="steps">
+      <li>Open <strong>Reports</strong> in the sidebar and choose <strong>New report</strong>.</li>
+      <li>Give it a <strong>Name</strong>, then pick the <strong>Project or portfolio</strong> and the <strong>Timeframe</strong>.</li>
+      <li>Choose a <strong>Report type</strong>. For <em>By period</em> also choose the <strong>Breakdown</strong>: by week or by month.</li>
+      <li>Choose <strong>Create</strong>. The report is saved and opens.</li>
+    </ol>
+    <div class="tablewrap"><table>
+      <tr><th>Report type</th><th>Rows are</th></tr>
+      <tr><td class="f">By period</td><td>Weeks or months in the timeframe.</td></tr>
+      <tr><td class="f">By person</td><td>One row per person, with a total.</td></tr>
+      <tr><td class="f">By account</td><td>One row per <a href="accounts.html">cost account</a> (including "No account"), so you can see CAPEX versus OPEX for the period.</td></tr>
+    </table></div>
+    <p>Totals are shown as tiles: hours, labor cost, expenses and total cost. A time-based project reports hours only.</p>
+
+    <h2 id="the-reports-list">The Reports list<a class="h-anchor" href="#the-reports-list" aria-label="Link to this section">#</a></h2>
+    <p>Saved reports appear as cards with their name, type, project or portfolio and period, and a search box above. Click a report's name to <strong>open</strong> it (a read-only view of the result). Use <strong>Edit</strong> to change its settings and <strong>Update</strong> to save, or <strong>Delete</strong> (with confirmation).</p>
+
+    <h2 id="filters-in-the-result-view">Filters in the result view<a class="h-anchor" href="#filters-in-the-result-view" aria-label="Link to this section">#</a></h2>
+    <p>When a report is open you can narrow it by <strong>Person</strong> and by <strong>Account</strong>. These filters are for looking, not part of the saved report. Expenses cannot be attributed to a person, so a person filter shows labor only; an account filter keeps expenses booked to that account.</p>
+
+    <h2 id="export">Export<a class="h-anchor" href="#export" aria-label="Link to this section">#</a></h2>
+    <p>Use <strong>Export to XLSX</strong> to download the current result as a spreadsheet.</p>
+
+    <h2 id="portfolio-reports">Portfolio reports<a class="h-anchor" href="#portfolio-reports" aria-label="Link to this section">#</a></h2>
+    <p>A portfolio report is each member project's report for the period, merged. Hours add up. Money adds up only across monetary members that share one currency; with mixed currencies, or only time-based members, the cost columns are left out and the page says so. Members that cannot be loaded (for example, a deleted project) are listed and left out. If a member hit the 500-issue limit, the warning names it.</p>
+
+    <div class="callout"><p>A report always reads Jira live and is <strong>not cached</strong> like the Overview, so a large project's report can take a moment to open.</p></div>
+    <div class="pagenav"><a class="prev" href="portfolios.html"><small>Previous</small>Portfolios</a><a class="next" href="sharing.html"><small>Next</small>Sharing and ownership</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#create-a-report">Create a report</a>
+    <a href="#the-reports-list">The Reports list</a>
+    <a href="#filters-in-the-result-view">Filters in the result view</a>
+    <a href="#export">Export</a>
+    <a href="#portfolio-reports">Portfolio reports</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

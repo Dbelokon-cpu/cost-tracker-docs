@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary · Cost Tracker documentation</title>
+<meta name="description" content="The terms used across these docs and in the app, in one place.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true"><line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/><path d="M 50 73 A 18 18 0 1 1 50 94"/></svg></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html" aria-current="page">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Reference</div>
+    <h1>Glossary</h1>
+    <p class="subtitle">The terms used across these docs and in the app, in one place.</p>
+    <dl class="glossary">
+      <dt id="actual-cost">Actual cost</dt><dd>Labor cost plus expenses recorded so far. On a time-based project, actual hours.</dd>
+      <dt id="billing-rate">Billing rate</dt><dd>What a client is charged per hour for a person's work. Separate from the cost rate, and used only when hourly revenue is on.</dd>
+      <dt id="budget">Budget</dt><dd>An optional target for a project: an amount in its currency, or hours on a time-based project. On a fixed-price project it is also the revenue.</dd>
+      <dt id="cost-account">Cost account</dt><dd>A named bucket of work (for example CAPEX, OPEX or a client) defined by JQL. It can carry its own rates and receive expenses. Managed site-wide by Jira administrators.</dd>
+      <dt id="cost-project">Cost project</dt><dd>The app's own entity: a scope plus everything that hangs off it (rates, team, expenses, revenue, budget). Not a copy of a Jira project.</dd>
+      <dt id="cost-rate">Cost rate</dt><dd>What a person costs the business per hour.</dd>
+      <dt id="default-rate">Default hourly rate</dt><dd>The project's fallback rate, used when no own, account or role rate applies. A new project starts at 0.</dd>
+      <dt id="effective-from">Effective from</dt><dd>The date a rate starts to apply. Hours logged on or after it use the new rate; earlier hours keep their old one.</dd>
+      <dt id="expense">Expense</dt><dd>A cost that is not logged time: a licence, travel, a contractor invoice. One-off or recurring.</dd>
+      <dt id="fixed-price">Fixed price</dt><dd>A revenue mode where the project's budget is its revenue regardless of hours logged.</dd>
+      <dt id="jql">JQL</dt><dd>Jira Query Language. Used to define a cost project's scope and a cost account's issues.</dd>
+      <dt id="labor-cost">Labor cost</dt><dd>The sum of every worklog's hours times its rate.</dd>
+      <dt id="margin">Margin</dt><dd>Profit as a share of revenue.</dd>
+      <dt id="milestone">Milestone</dt><dd>A date and a cumulative planned spend. Together they form the plan the Overview compares actual cost with.</dd>
+      <dt id="monetary">Monetary-based</dt><dd>A project type whose cost and budget are in a currency, computed from hourly rates.</dd>
+      <dt id="period">Period (of a rate)</dt><dd>A stretch of time during which a rate has one value. A rate with several periods has a history.</dd>
+      <dt id="portfolio">Portfolio</dt><dd>A group of cost projects with a combined view of cost, budget and timeline.</dd>
+      <dt id="profit">Profit</dt><dd>Revenue minus actual cost.</dd>
+      <dt id="role">Role</dt><dd>A named group of people in one project with a shared cost and billing rate.</dd>
+      <dt id="scope">Scope</dt><dd>What a cost project reads: one or more Jira spaces, or a JQL filter. It resolves to one JQL string.</dd>
+      <dt id="space">Space (Jira space)</dt><dd>Jira's name for a project container. "Jira space" and "Jira project" mean the same thing in these docs, to tell them apart from a <em>cost</em> project.</dd>
+      <dt id="time-based">Time-based</dt><dd>A project type whose cost and budget are in hours. It uses no rates and has no revenue.</dd>
+      <dt id="worklog">Worklog</dt><dd>A record of time logged on a Jira issue. Cost Tracker reads these; nobody logs time in the app.</dd>
+    </dl>
+    <div class="pagenav"><a class="prev" href="permissions.html"><small>Previous</small>Permissions and access</a><a class="next" href="troubleshooting.html"><small>Next</small>Troubleshooting</a></div>
+    <div class="colophon">Last updated 2026-10-11. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>

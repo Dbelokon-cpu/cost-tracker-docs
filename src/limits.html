@@ -1,0 +1,31 @@
+<!--meta {"title": "Limits and behaviour", "desc": "Every limit and fixed behaviour in one place: sizes, caching, formats and what happens at the edges."} -->
+<h2>Limits</h2>
+<div class="tablewrap"><table>
+  <tr><th>What</th><th>Limit</th><th>What happens at the limit</th></tr>
+  <tr><td>Issues read per cost project</td><td class="num">500</td><td>The page says "first 500 of about N issues" and the totals are incomplete. Split the project (below).</td></tr>
+  <tr><td>Cost accounts on the site</td><td class="num">20</td><td>Creating a 21st is refused. Each account costs an extra Jira search per project calculation.</td></tr>
+  <tr><td>Role name length</td><td class="num">60</td><td>Refused. Names must also be unique within a project, ignoring case.</td></tr>
+  <tr><td>Milestones per project</td><td class="num">24</td><td>Refused.</td></tr>
+  <tr><td>People named in a project's sharing</td><td class="num">50</td><td>Refused.</td></tr>
+  <tr><td>Calculated figures are kept</td><td class="num">~15 min</td><td>Recomputed after that, or immediately after a change that affects them.</td></tr>
+</table></div>
+
+<h3>If a project is over 500 issues</h3>
+<p>The 500-issue limit is deliberate, sized for small and medium teams. A bigger scope still works, but only the first 500 issues count and the page says so (Overview, Scope and Reports all show the warning, with the real size when Jira can tell). To get complete figures:</p>
+<ul>
+  <li><strong>Split by Jira space.</strong> If the scope covers several spaces, make one cost project per space and group them in a <a href="portfolios.html">portfolio</a>.</li>
+  <li><strong>Narrow by period.</strong> Add a date condition to the JQL, for example <code>AND created &gt;= "2026-01-01"</code>, and keep a separate project for older work.</li>
+</ul>
+
+<h2>Behaviour</h2>
+<div class="tablewrap"><table>
+  <tr><th>Topic</th><th>How it behaves</th></tr>
+  <tr><td>Currency</td><td>A property of each project. Amounts are never converted. A portfolio or report adds money only across projects with the same currency.</td></tr>
+  <tr><td>Rates</td><td>Non-negative numbers. Empty means "use the next level", <code>0</code> is a real rate. A rate can start on a date; with no date it applies to all hours.</td></tr>
+  <tr><td>Worklog date</td><td>The day the worklog was logged for, as Jira stores it. Rates are matched to this date.</td></tr>
+  <tr><td>Type or currency change</td><td>Nothing is converted; the app asks you to confirm first.</td></tr>
+  <tr><td>Date format</td><td>Shown in Jira's own style, for example <em>Oct 22, 2026</em>. Typed dates also accept <code>YYYY-MM-DD</code>.</td></tr>
+  <tr><td>Reports</td><td>Read Jira live (not cached) for the chosen timeframe.</td></tr>
+  <tr><td>Exports</td><td>XLSX files, generated from what is on screen. CSV export was removed.</td></tr>
+  <tr><td>Jira data</td><td>Only read, never changed. See <a href="privacy.html">Privacy</a>.</td></tr>
+</table></div>
