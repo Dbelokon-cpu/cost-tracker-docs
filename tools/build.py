@@ -9,7 +9,6 @@ A fragment starts with one line of metadata:
     <!--meta {"title": "...", "desc": "one-sentence summary"} -->
 followed by the page body (no <h1>: the template draws it from the title).
 """
-import datetime
 import html
 import json
 import re
@@ -81,7 +80,7 @@ TEMPLATE = """<!doctype html>
     <p class="subtitle">{desc}</p>
 {body}
 {pagenav}
-    <div class="colophon">Last updated {date}. Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+    <div class="colophon">Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
   </main>
 
   <nav class="toc-right" aria-label="On this page">
@@ -153,11 +152,6 @@ def pagenav(slug):
 
 
 def main():
-    today = datetime.date.today().isoformat()
-    for arg in sys.argv[1:]:
-        if arg.startswith("--date="):
-            today = arg.split("=", 1)[1]
-
     search, problems = [], []
     ids, links = {}, []
     for slug in ORDER:
@@ -178,7 +172,7 @@ def main():
             page_title=html.escape(f"{title} · {SITE} documentation" if slug != "index" else f"{SITE} documentation"),
             desc=html.escape(meta["desc"], quote=True), logo=LOGO, nav=nav_html(slug), crumb=crumb,
             title=html.escape(title), body="\n".join("    " + l if l.strip() else l for l in body.split("\n")),
-            pagenav=pagenav(slug), toc=toc_for(body), date=today,
+            pagenav=pagenav(slug), toc=toc_for(body),
         )
         (ROOT / f"{slug}.html").write_text(page, encoding="utf-8")
         headings = " ".join(html.unescape(re.sub(r"<[^>]+>|#$", "", h)) for h in re.findall(r"<h[23][^>]*>(.*?)</h[23]>", body, flags=re.S))
@@ -203,7 +197,7 @@ def main():
         page_title=f"Page not found · {SITE} documentation", desc="This page does not exist.", logo=LOGO,
         nav=nav_html(""), crumb="Documentation", title="Page not found",
         body='    <p>That page does not exist or has moved. Try the <a href="index.html">overview</a> or search the docs.</p>',
-        pagenav="", toc="", date=today)
+        pagenav="", toc="")
     (ROOT / "404.html").write_text(page404, encoding="utf-8")
 
     (ROOT / "assets").mkdir(exist_ok=True)
