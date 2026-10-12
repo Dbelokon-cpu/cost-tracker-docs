@@ -25,11 +25,12 @@
 <p>Hourly rates are tied to named people and can reveal compensation-related information. Who sees a project's rates is controlled by that project's sharing settings, and nothing in the app shows one project's rates to someone without access to it.</p>
 
 <h2>Permissions the app asks for</h2>
-<p>The app requests three Forge permissions and nothing else:</p>
+<p>The app requests four Forge permissions and nothing else:</p>
 <div class="tablewrap"><table>
   <tr><th>Permission</th><th>Used for</th></tr>
   <tr><td class="f">read:jira-work</td><td>Searching issues and reading their worklogs and dates, listing Jira projects, and checking whether you are a site administrator.</td></tr>
   <tr><td class="f">read:jira-user</td><td>Showing people's names and finding users to add as members or to share with.</td></tr>
   <tr><td class="f">storage:app</td><td>Keeping the app's own data (projects, rates, expenses) in Forge storage.</td></tr>
+  <tr><td class="f">report:personal-data</td><td>Atlassian's weekly personal data check: the app tells Atlassian which account IDs it holds, and Atlassian answers which accounts were closed or changed. See <a href="privacy.html#personal-data-and-closed-accounts">Privacy policy</a>.</td></tr>
 </table></div>
 <p>Jira is only ever read, never written to. Requests to Jira run as the person using the app. Cost Tracker declares no external network access and no web triggers. Details: <a href="privacy.html">Privacy policy</a> and <a href="security.html">Security policy</a>.</p>

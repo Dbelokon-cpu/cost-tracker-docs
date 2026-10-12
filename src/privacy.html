@@ -38,6 +38,18 @@
       <p>Hourly cost and billing rates are tied to named people and can reveal compensation-related information. Who can see a project's rates is controlled by that project's own sharing settings — set, and changeable only, by its owner. There's no feature that surfaces one project's rates to someone who isn't given access to that project.</p>
     </section>
 
+    <section id="personal-data">
+      <h2>Personal data and closed accounts</h2>
+      <p>The only personal data the app stores is the Atlassian account ID and display name of people your users name in it: a project's owner and the people it is shared with, team members and their roles, the person a rate belongs to and who last changed it, a cost account's lead, a portfolio's owner and viewers, and the person chosen in a saved "by person" report. It stores no email address, password, payment detail or token.</p>
+      <p>As Atlassian requires of every app that stores personal data, the app checks this once a week through Atlassian's Personal data reporting API: it sends the account IDs it holds and Atlassian answers which accounts were closed or had their profile changed. Nothing else is sent, and no data leaves Atlassian's infrastructure.</p>
+      <ul>
+        <li><strong>Closed account:</strong> the person is erased. Their team memberships, their own rates, their place in sharing lists and their name as an owner, lead or editor are removed, and a saved report filtered on them loses that filter. Rates, costs and projects themselves are kept; a project or portfolio that had them as owner is left without an owner, which a Jira site administrator can then manage.</li>
+        <li><strong>Changed profile:</strong> the stored display name is refreshed.</li>
+        <li>Computed report totals, which contain people's names, are discarded whenever either happens and are rebuilt on the next view.</li>
+      </ul>
+      <p>The app writes only counts to its logs, never an account ID or a name.</p>
+    </section>
+
     <section id="retention">
       <h2>Retention &amp; deletion</h2>
       <p>Data stays in your site's Forge storage until your users delete it in the app, or until the app is uninstalled. Deleting a cost project removes its own rates, team, expenses, revenue, budget and milestones; it does not retroactively scrub it from a portfolio's history, which instead shows a "member was deleted" note. Removal of storage after uninstall follows Atlassian's own Forge retention policy.</p>
