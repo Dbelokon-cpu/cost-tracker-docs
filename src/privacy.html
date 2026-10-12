@@ -44,7 +44,7 @@
       <p>As Atlassian requires of every app that stores personal data, the app checks this once a week through Atlassian's Personal data reporting API: it sends the account IDs it holds and Atlassian answers which accounts were closed or had their profile changed. Nothing else is sent, and no data leaves Atlassian's infrastructure.</p>
       <ul>
         <li><strong>Closed account:</strong> the person is erased. Their team memberships, their own rates, their place in sharing lists and their name as an owner, lead or editor are removed, and a saved report filtered on them loses that filter. Rates, costs and projects themselves are kept; a project or portfolio that had them as owner is left without an owner, which a Jira site administrator can then manage.</li>
-        <li><strong>Changed profile:</strong> the stored display name is refreshed.</li>
+        <li><strong>Changed profile:</strong> the stored display name is dropped, and filled in again the next time someone opens a screen that shows it, by looking it up as that user. The weekly check itself never reads Jira.</li>
         <li>Computed report totals, which contain people's names, are discarded whenever either happens and are rebuilt on the next view.</li>
       </ul>
       <p>The app writes only counts to its logs, never an account ID or a name.</p>

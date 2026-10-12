@@ -22,7 +22,7 @@
         <div class="scope-item"><code>storage:app</code><span>the app's own Forge key-value store</span></div>
         <div class="scope-item"><code>report:personal-data</code><span>Atlassian's Personal data reporting API: a weekly check of which stored account IDs belong to closed or changed accounts</span></div>
       </div>
-      <p>No Jira write scope is declared anywhere in the manifest.</p>
+      <p>No Jira write scope is declared anywhere in the manifest. The app never acts as itself on a user's behalf: every Jira call is made as the signed-in user (<code>asUser</code>), and the weekly personal data check makes no Jira call at all.</p>
     </section>
 
     <section id="practices">
