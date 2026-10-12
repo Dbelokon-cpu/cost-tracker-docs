@@ -36,9 +36,7 @@ ORDER = [slug for _, items in NAV for slug, _ in items]
 LABEL = {slug: label for _, items in NAV for slug, label in items}
 GROUP = {slug: g for g, items in NAV for slug, _ in items}
 
-LOGO = ('<svg viewBox="0 0 128 128" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" aria-hidden="true">'
-        '<line x1="64" y1="18" x2="64" y2="110" stroke-width="8"/><path d="M 78 34 A 18 18 0 1 0 78 55"/>'
-        '<path d="M 50 73 A 18 18 0 1 1 50 94"/></svg>')
+LOGO = '<img src="assets/icon.svg" width="30" height="30" alt="" aria-hidden="true">'
 
 TEMPLATE = """<!doctype html>
 <html lang="en">
@@ -49,6 +47,8 @@ TEMPLATE = """<!doctype html>
 <meta name="description" content="{desc}">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-144.png">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
