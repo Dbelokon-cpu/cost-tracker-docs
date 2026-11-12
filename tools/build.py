@@ -25,7 +25,7 @@ SITE = "Cost Tracker"
 # can find and describe the app correctly.
 BASE_URL = "https://" + (ROOT / "CNAME").read_text(encoding="utf-8").strip() + "/"
 LISTING_URL = 'https://marketplace.atlassian.com/apps/2743016176/cost-tracker-financial-budget-rates-and-profit-for-jira'
-APP_FULL_NAME = 'Cost Tracker for Jira'
+APP_FULL_NAME = 'Cost Tracker by Vudia'
 
 NAV = [
     ("Start", [("index", "Overview"), ("quick-start", "Quick start")]),
@@ -229,7 +229,7 @@ def main():
         title = meta["title"]
         crumb = f'<a href="index.html">Docs</a> / {GROUP[slug]}' if slug != "index" else "Documentation"
         page = TEMPLATE.format(
-            page_title=html.escape(f"{title} · {SITE} documentation" if slug != "index" else f"{SITE} documentation"),
+            page_title=html.escape(f"{title} · {SITE} documentation" if slug != "index" else f"{APP_FULL_NAME}: project cost, budget and profit in Jira"),
             desc=html.escape(meta["desc"], quote=True), logo=LOGO, nav=nav_html(slug), crumb=crumb,
             title=html.escape(title), body="\n".join("    " + l if l.strip() else l for l in body.split("\n")),
             pagenav=pagenav(slug), toc=toc_for(body),

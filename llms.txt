@@ -1,8 +1,8 @@
-# Cost Tracker for Jira
+# Cost Tracker by Vudia
 
 > Calculates project cost from the time your team already logs in Jira, using hourly rates, and compares it with budget and revenue to show profit. No separate time-tracking product to adopt.
 
-Cost Tracker for Jira is a Jira Cloud app by Vudia, built on Atlassian Forge.
+Cost Tracker by Vudia is a Jira Cloud app by Vudia, built on Atlassian Forge.
 Atlassian Marketplace listing: https://marketplace.atlassian.com/apps/2743016176/cost-tracker-financial-budget-rates-and-profit-for-jira
 Support: info@vudia.site
 
