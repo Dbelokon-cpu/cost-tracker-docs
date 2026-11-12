@@ -1,0 +1,44 @@
+# Cost Tracker for Jira
+
+> Calculates project cost from the time your team already logs in Jira, using hourly rates, and compares it with budget and revenue to show profit. No separate time-tracking product to adopt.
+
+Cost Tracker for Jira is a Jira Cloud app by Vudia, built on Atlassian Forge.
+Atlassian Marketplace listing: https://marketplace.atlassian.com/apps/2743016176/cost-tracker-financial-budget-rates-and-profit-for-jira
+Support: info@vudia.site
+
+## Start
+
+- [Quick start](https://cost.vudia.site/quick-start.html): Create a cost project, set rates and see real numbers in about ten minutes. The same example is used throughout these docs.
+
+## Concepts
+
+- [How cost is calculated](https://cost.vudia.site/how-cost-works.html): From a Jira worklog to a number on the Overview: what is read, how each hour is priced, and what is added.
+- [Rates, roles and the team](https://cost.vudia.site/rates.html): How an hourly rate is chosen for each worklog, how roles and cost accounts fit in, and how to change a rate without rewriting history.
+
+## Guides
+
+- [Cost projects and scope](https://cost.vudia.site/projects.html): Create and manage cost projects: what a scope is, the project tabs, the Projects table, statuses, attributes and changing the type or currency.
+- [Expenses](https://cost.vudia.site/expenses.html): Record costs that do not come from logged time, one-off or recurring, and see them counted in actual cost and the forecast.
+- [Revenue and profit](https://cost.vudia.site/revenue.html): Track what a project earns, by billable hours or as a fixed price, and see profit and margin next to cost.
+- [Budget and milestones](https://cost.vudia.site/budget.html): Set a budget, plan spend over time with milestones, and read the Overview's progress against schedule, scope and cost.
+- [Cost accounts](https://cost.vudia.site/accounts.html): Named buckets of work, such as CAPEX and OPEX or a client, defined by JQL, that can carry their own rates and receive expenses.
+- [Portfolios](https://cost.vudia.site/portfolios.html): Group several cost projects for a combined view of cost, budget and team.
+- [Reports](https://cost.vudia.site/reports.html): Break a project or portfolio's cost down by period, person or account over a timeframe, save the report and export it to XLSX.
+- [Sharing and ownership](https://cost.vudia.site/sharing.html): Who can open or change a project or portfolio, how to share them, and how to hand a project to someone else.
+
+## Reference
+
+- [Limits and behaviour](https://cost.vudia.site/limits.html): Every limit and fixed behaviour in one place: sizes, caching, formats and what happens at the edges.
+- [Permissions and access](https://cost.vudia.site/permissions.html): Who can do what in the app, and which Jira permissions the app itself asks for.
+- [Glossary](https://cost.vudia.site/glossary.html): The terms used across these docs and in the app, in one place.
+
+## Help
+
+- [Troubleshooting](https://cost.vudia.site/troubleshooting.html): Symptom, likely cause and what to do, for the problems people meet most often.
+- [FAQ and support](https://cost.vudia.site/faq.html): Short answers to common questions, and how to reach support.
+- [What's new](https://cost.vudia.site/changelog.html): User-visible changes to Cost Tracker, newest first.
+
+## Policies
+
+- [Privacy policy](https://cost.vudia.site/privacy.html): A Jira app by Vudia. This page explains exactly what the app reads from Jira, what it stores, and what it never touches.
+- [Security policy](https://cost.vudia.site/security.html): How this app is built, what it can access, and how we handle a security report — for the technical reviewer, not just the end user.
