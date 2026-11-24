@@ -22,6 +22,7 @@ Support: info@vudia.site
 - [Revenue and profit](https://cost.vudia.site/revenue.html): Track what a project earns, by billable hours or as a fixed price, and see profit and margin next to cost.
 - [Budget and milestones](https://cost.vudia.site/budget.html): Set a budget, plan spend over time with milestones, and read the Overview's progress against schedule, scope and cost.
 - [Cost accounts](https://cost.vudia.site/accounts.html): Named buckets of work, such as CAPEX and OPEX or a client, defined by JQL, that can carry their own rates and receive expenses.
+- [Prepaid hours](https://cost.vudia.site/prepaid-hours.html): Give a cost account a package of hours the customer has paid for, monthly or as one block, and track what is used, what is left and when it runs out.
 - [Portfolios](https://cost.vudia.site/portfolios.html): Group several cost projects for a combined view of cost, budget and team.
 - [Reports](https://cost.vudia.site/reports.html): Break a project or portfolio's cost down by period, person or account over a timeframe, save the report and export it to XLSX.
 - [Sharing and ownership](https://cost.vudia.site/sharing.html): Who can open or change a project or portfolio, how to share them, and how to hand a project to someone else.

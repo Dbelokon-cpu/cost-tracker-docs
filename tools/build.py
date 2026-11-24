@@ -32,7 +32,7 @@ NAV = [
     ("Concepts", [("how-cost-works", "How cost is calculated"), ("rates", "Rates, roles and the team")]),
     ("Guides", [
         ("projects", "Cost projects and scope"), ("expenses", "Expenses"), ("revenue", "Revenue and profit"),
-        ("budget", "Budget and milestones"), ("accounts", "Cost accounts"), ("portfolios", "Portfolios"),
+        ("budget", "Budget and milestones"), ("accounts", "Cost accounts"), ("prepaid-hours", "Prepaid hours"), ("portfolios", "Portfolios"),
         ("reports", "Reports"), ("sharing", "Sharing and ownership"),
     ]),
     ("Reference", [("limits", "Limits and behaviour"), ("permissions", "Permissions and access"), ("glossary", "Glossary")]),

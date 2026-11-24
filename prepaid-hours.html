@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prepaid hours · Cost Tracker documentation</title>
+<meta name="description" content="Give a cost account a package of hours the customer has paid for, monthly or as one block, and track what is used, what is left and when it runs out.">
+<link rel="canonical" href="https://cost.vudia.site/prepaid-hours.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLG2699H0J"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HLG2699H0J');
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-144.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="shell">
+  <aside class="side">
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><img src="assets/icon.svg" width="30" height="30" alt="" aria-hidden="true"></div>
+      <div><div class="brand-name">COST TRACKER</div><div class="brand-sub">Documentation · by Vudia</div></div>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search the docs" aria-label="Search the documentation" autocomplete="off">
+      <div class="search-results" id="results" hidden></div>
+    </div>
+    <details class="nav-wrap" open>
+      <summary>Menu</summary>
+      <nav class="toc" aria-label="Documentation">
+        <span class="toc-group-label">Start</span>
+        <a href="index.html">Overview</a>
+        <a href="quick-start.html">Quick start</a>
+        <span class="toc-group-label">Concepts</span>
+        <a href="how-cost-works.html">How cost is calculated</a>
+        <a href="rates.html">Rates, roles and the team</a>
+        <span class="toc-group-label">Guides</span>
+        <a href="projects.html">Cost projects and scope</a>
+        <a href="expenses.html">Expenses</a>
+        <a href="revenue.html">Revenue and profit</a>
+        <a href="budget.html">Budget and milestones</a>
+        <a href="accounts.html">Cost accounts</a>
+        <a href="prepaid-hours.html" aria-current="page">Prepaid hours</a>
+        <a href="portfolios.html">Portfolios</a>
+        <a href="reports.html">Reports</a>
+        <a href="sharing.html">Sharing and ownership</a>
+        <span class="toc-group-label">Reference</span>
+        <a href="limits.html">Limits and behaviour</a>
+        <a href="permissions.html">Permissions and access</a>
+        <a href="glossary.html">Glossary</a>
+        <span class="toc-group-label">Help</span>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="faq.html">FAQ and support</a>
+        <a href="changelog.html">What&#x27;s new</a>
+        <span class="toc-group-label">Policies</span>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="security.html">Security policy</a>
+      </nav>
+    </details>
+    <div class="meta-card">
+      <div class="meta-row"><span class="meta-label">Platform</span><div class="meta-value">Atlassian Forge · Jira Cloud</div></div>
+      <div class="meta-row"><span class="meta-label">Support</span><div class="meta-value"><a href="mailto:info@vudia.site">info@vudia.site</a></div></div>
+    </div>
+  </aside>
+
+  <main id="content">
+    <div class="crumb"><a href="index.html">Docs</a> / Guides</div>
+    <h1>Prepaid hours</h1>
+    <p class="subtitle">Give a cost account a package of hours the customer has paid for, monthly or as one block, and track what is used, what is left and when it runs out.</p>
+    <p>A <strong>prepaid hours</strong> package (also called a retainer or a block of hours) is the time a customer has paid for in advance. Cost Tracker attaches the package to a <a href="accounts.html">cost account</a> and draws it down with the time logged on that account's issues, so you can see at any moment how much is left and warn the customer before it runs out.</p>
+
+    <h2 id="set-up-a-package">Set up a package<a class="h-anchor" href="#set-up-a-package" aria-label="Link to this section">#</a></h2>
+    <ol class="steps">
+      <li>Open <strong>Setup → Accounts</strong> and create or edit an account. Its <strong>JQL</strong> decides which issues count against the package, for example <code>project = SUP AND labels = acme</code>.</li>
+      <li>In the <strong>Prepaid hours</strong> section, enter the <strong>Hours</strong> and choose how it <strong>Renews</strong>: <em>Every month</em> or <em>One block of hours</em>.</li>
+      <li>Pick the <strong>Starts</strong> date and, optionally, the <strong>Ends</strong> date.</li>
+      <li>Set <strong>Warn at</strong>, the share of the hours after which the package is marked as running low (80% by default).</li>
+      <li>For a monthly package, tick <strong>Carry unused hours (and overruns) into the next month</strong> if your contract rolls hours over.</li>
+      <li>Save. To remove the package later, clear the Hours field.</li>
+    </ol>
+
+    <div class="tablewrap"><table>
+      <tr><th>Field</th><th>Notes</th></tr>
+      <tr><td class="f">Hours</td><td>A number above 0. Empty means the account has no package.</td></tr>
+      <tr><td class="f">Renews</td><td><em>Every month</em>: the hours are given again on each calendar month, the first period starting on the start date. <em>One block of hours</em>: one amount for the whole contract.</td></tr>
+      <tr><td class="f">Starts, Ends</td><td>Starts is required. Work logged before it does not count. With no end date, a monthly package keeps renewing.</td></tr>
+      <tr><td class="f">Warn at</td><td>A whole percent from 1 to 100.</td></tr>
+      <tr><td class="f">Carry over</td><td>Monthly packages only. Unused hours are added to the next month, and an overrun is taken from it.</td></tr>
+    </table></div>
+
+    <h2 id="see-the-balance">See the balance<a class="h-anchor" href="#see-the-balance" aria-label="Link to this section">#</a></h2>
+    <p>The <strong>Prepaid hours</strong> tab under <strong>Setup → Accounts</strong> lists every account with a package: its customer, the package, a bar for the current period, the hours left, a status and the date the hours are expected to run out at the current pace. A note at the top lists the packages that need attention, and a filter narrows the list to them.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Status</th><th>Meaning</th></tr>
+      <tr><td class="f">On track</td><td>Less than the <em>Warn at</em> share is used.</td></tr>
+      <tr><td class="f">Running low</td><td>The <em>Warn at</em> share is reached.</td></tr>
+      <tr><td class="f">Over</td><td>More hours were logged than the period had.</td></tr>
+      <tr><td class="f">Not started, Ended</td><td>Today is before the start date or after the end date.</td></tr>
+    </table></div>
+
+    <h2 id="a-package-s-page">A package's page<a class="h-anchor" href="#a-package-s-page" aria-label="Link to this section">#</a></h2>
+    <p>Click an account to open its package:</p>
+    <ul>
+      <li><strong>Included, Used, Left, Runs out</strong> for the current period. Included shows the hours carried in from the previous month, if any.</li>
+      <li><strong>By month</strong>: every period with its hours, carry-over, use and balance. Click a month to see its work.</li>
+      <li><strong>Issues in the month</strong>: each issue worked on in that period with its hours, largest first.</li>
+      <li><strong>Export to XLSX</strong> saves the chosen month (the package, the balance and the issue list) as a file you can send to the customer.</li>
+    </ul>
+
+    <h2 id="how-hours-are-counted">How hours are counted<a class="h-anchor" href="#how-hours-are-counted" aria-label="Link to this section">#</a></h2>
+    <ul>
+      <li>Every worklog on an issue matching the account's JQL counts, anywhere on the site. Unlike cost, the package is not limited to one cost project's scope, because a customer's package usually covers all their work.</li>
+      <li>A worklog counts in the period of the day it was logged for.</li>
+      <li>The figures are counted from the Jira worklogs <strong>you</strong> can see. Someone without access to some issues sees a smaller use.</li>
+      <li>Results are kept for about 15 minutes. <strong>Refresh</strong> recounts at once. Changing any account also recounts.</li>
+      <li>The issue overlap rule for rates (an issue in several accounts goes to the first one) does not apply here: an issue counts against every package whose JQL it matches.</li>
+      <li>Up to 500 issues are read per package, from the earliest period shown. If more match, the page says the figures are incomplete; narrow the account's JQL.</li>
+      <li>Long monthly packages show the last 36 months.</li>
+    </ul>
+
+    <h2 id="who-can-do-what">Who can do what<a class="h-anchor" href="#who-can-do-what" aria-label="Link to this section">#</a></h2>
+    <p>Only Jira site administrators can set up or change a package, as with any account. Everyone can see the Prepaid hours tab and export a month.</p>
+    <div class="pagenav"><a class="prev" href="accounts.html"><small>Previous</small>Cost accounts</a><a class="next" href="portfolios.html"><small>Next</small>Portfolios</a></div>
+    <div class="colophon">Cost Tracker is built on Atlassian Forge and runs entirely on Atlassian's infrastructure. Questions or corrections: <a href="mailto:info@vudia.site">info@vudia.site</a>.</div>
+  </main>
+
+  <nav class="toc-right" aria-label="On this page">
+    <p>On this page</p>
+    <a href="#set-up-a-package">Set up a package</a>
+    <a href="#see-the-balance">See the balance</a>
+    <a href="#a-package-s-page">A package's page</a>
+    <a href="#how-hours-are-counted">How hours are counted</a>
+    <a href="#who-can-do-what">Who can do what</a>
+  </nav>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
