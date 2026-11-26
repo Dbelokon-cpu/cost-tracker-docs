@@ -1,6 +1,10 @@
 <!--meta {"title": "Permissions and access", "desc": "Who can do what in the app, and which Jira permissions the app itself asks for."} -->
+<h2>Who can open the app</h2>
+<p>By default everyone on the Jira site can open Cost Tracker. A Jira site administrator can limit it to chosen Jira groups under <strong>Setup → Access</strong>: then only members of those groups can open the app, and everyone else sees a message asking them to contact an administrator. Jira site administrators can always open it, so a wrong choice never locks everyone out. Clear the list to open the app to everyone again.</p>
+<p>The limit covers the whole app, because costs, rates and revenue are what the app shows: hiding only the rates would still let them be worked out from costs and hours. A change takes effect within about a minute.</p>
+
 <h2>Who can do what</h2>
-<p>Access is decided per project. See <a href="sharing.html">Sharing and ownership</a> for how people are given a level.</p>
+<p>Inside the app, access is decided per project. See <a href="sharing.html">Sharing and ownership</a> for how people are given a level.</p>
 <div class="tablewrap"><table>
   <tr><th>Action</th><th>Viewer</th><th>Editor</th><th>Owner</th><th>Site admin</th></tr>
   <tr><td>Open a project and read its figures</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes, even if not shared with them</td></tr>
@@ -20,16 +24,17 @@
   <tr><td>Cost accounts</td><td>Everyone</td><td>Jira site administrators</td></tr>
   <tr><td>Attributes</td><td>Everyone</td><td>Jira site administrators</td></tr>
   <tr><td>Role library</td><td>Everyone</td><td>Jira site administrators</td></tr>
+  <tr><td>Access (who can open the app)</td><td>Jira site administrators</td><td>Jira site administrators</td></tr>
   <tr><td>Reports</td><td colspan="2">A report's data is limited by the project it reads: you only see figures for projects you can open.</td></tr>
 </table></div>
-<p>Hourly rates are tied to named people and can reveal compensation-related information. Who sees a project's rates is controlled by that project's sharing settings, and nothing in the app shows one project's rates to someone without access to it.</p>
+<p>Hourly rates are tied to named people and can reveal compensation-related information. A project's own rates (people, roles, the default rate) are seen only by people who can open that project. Cost account and role library rates are site-wide and seen by everyone who can open the app, so if they are sensitive, limit the app to the right groups under <strong>Setup → Access</strong>.</p>
 
 <h2>Permissions the app asks for</h2>
 <p>The app requests four Forge permissions and nothing else:</p>
 <div class="tablewrap"><table>
   <tr><th>Permission</th><th>Used for</th></tr>
   <tr><td class="f">read:jira-work</td><td>Searching issues and reading their worklogs and dates, listing Jira projects, and checking whether you are a site administrator.</td></tr>
-  <tr><td class="f">read:jira-user</td><td>Showing people's names and finding users to add as members or to share with.</td></tr>
+  <tr><td class="f">read:jira-user</td><td>Showing people's names, finding users to add as members or to share with, and listing Jira groups and checking your group membership for <strong>Setup → Access</strong>.</td></tr>
   <tr><td class="f">storage:app</td><td>Keeping the app's own data (projects, rates, expenses) in Forge storage.</td></tr>
   <tr><td class="f">report:personal-data</td><td>Atlassian's weekly personal data check: the app tells Atlassian which account IDs it holds, and Atlassian answers which accounts were closed or changed. See <a href="privacy.html#personal-data-and-closed-accounts">Privacy policy</a>.</td></tr>
 </table></div>
